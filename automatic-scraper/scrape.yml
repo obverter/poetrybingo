@@ -16,11 +16,11 @@ jobs:
       # Download all of the code from your repo
       - name: Check out this repo
         uses: actions/checkout@v2
-      # Set up Python 3.9
+      # Set up Python 3.10
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.10'
       - name: Install necessary Python packages
         run: pip install pandas beautifulsoup4 requests
       # MAKE SURE YOUR SCRAPER FILENAME MATCHES THE FILENAME HERE!!
