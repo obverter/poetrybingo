@@ -15,18 +15,18 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-<!-- [![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url] -->
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/obverter/repo-name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/obverter/tmz-poetry">
+    <img src="images/tmz-poetry.png">
   </a>
 
 <h3 align="center">Project Title</h3>
@@ -34,14 +34,14 @@
   <p align="center">
     It is said that baseball is a game of inches. But what if it were a game of pounds?
     <br />
-    <a href="https://github.com/obverter/repo-name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/obverter/tmz-poetry"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/obverter/repo-name">View Demo</a>
+    <a href="https://github.com/obverter/tmz-poetry">View Demo</a>
     ·
-    <a href="https://github.com/obverter/repo-name/issues">Report Bug</a>
+    <a href="https://github.com/obverter/tmz-poetry/issues">Report Bug</a>
     ·
-    <a href="https://github.com/obverter/repo-name/issues">Request Feature</a>
+    <a href="https://github.com/obverter/tmz-poetry/issues">Request Feature</a>
   </p>
 </div>
 
@@ -78,7 +78,7 @@
 <!--
 [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-<!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `obverter`, `repo-name`, `obverter`, `BenTylerElliott`, `obverter.com`, `ben`, `Project Title`, `Project description, pithy.` -->
+<!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `obverter`, `tmz-poetry`, `obverter`, `BenTylerElliott`, `obverter.com`, `ben`, `TMZ Poetry`, `Turning Trash Into Treasure` -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -94,7 +94,7 @@
 * [JQuery](https://jquery.com) -->
 
 - [Python](https://python.org)
-- [Jupyter](https://jupyter.org)
+- [GitHub Actions](https://github.com/features/actions)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -114,7 +114,7 @@ First, you'll need to clone the repo. Follow these instructions carefully.
    ```
 2. Clone the repo.
    ```sh
-   $ git clone https://github.com/obverter/repo-name.git
+   $ git clone https://github.com/obverter/tmz-poetry.git
    ```
 3. Ensure that your machine and this repo are codependent.
    ```sh
@@ -141,9 +141,12 @@ First, you'll need to clone the repo. Follow these instructions carefully.
 
 ## Roadmap
 
+- [ ] Build NLP module.
+- [ ] Build BKG module.
+- [ ] Put it all together.
 - [ ] Revisit this project in np.random.default_rng().integers(low=1, high=12) months.
 
-See the [open issues](https://github.com/obverter/repo-name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/obverter/tmz-poetry/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -153,9 +156,9 @@ See the [open issues](https://github.com/obverter/repo-name/issues) for a full l
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Please don't be bashful. You won't hurt my feelings.
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Please don't be bashful. It is impossible to hurt my feelings, because I have none.
 
-If my analyses seem fundamentally wrong and/or are yucking your yum, let me know why! Projects are never finished; only abandoned. I'm always looking to improve.
+If my analyses or work seem fundamentally wrong and/or are yucking your yum, let me know why! Projects are never finished; only abandoned. I'm always looking to improve.
 
 Don't forget to give the project a star! And then make a burner account and give it another star! Thanks again!
 
@@ -179,9 +182,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@obverter](https://twitter.com/obverter) - ben@obverter.com.com
+[Email me](ben@obverter.com)
 
-Project Link: [https://github.com/obverter/repo-name](https://github.com/obverter/repo-name)
+Project Link: [https://github.com/obverter/tmz-poetry](https://github.com/obverter/tmz-poetry)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -189,7 +192,11 @@ Project Link: [https://github.com/obverter/repo-name](https://github.com/obverte
 
 ## Acknowledgments
 
-- [Kermit](https://instagram.com/dangerkermit)
+- [Lunchables](https://lunchables.com)
+- [Allison Parrish](https://github.com/aparrish)
+- [Jonathan Soma](https://github.com/jsoma)
+- <a target="_blank" href="https://icons8.com/icon/109470/trash">Trash</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+- <a target="_blank" href="https://icons8.com/icon/gKCLeOcRmojF/treasure-chest">Treasure Chest</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 <!-- * []()
 - []() -->
 
@@ -198,16 +205,16 @@ Project Link: [https://github.com/obverter/repo-name](https://github.com/obverte
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/obverter/repo-name.svg?style=for-the-badge
-[contributors-url]: https://github.com/obverter/repo-name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/obverter/repo-name.svg?style=for-the-badge
-[forks-url]: https://github.com/obverter/repo-name/network/members
-[stars-shield]: https://img.shields.io/github/stars/obverter/repo-name.svg?style=for-the-badge
-[stars-url]: https://github.com/obverter/repo-name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/obverter/repo-name.svg?style=for-the-badge
-[issues-url]: https://github.com/obverter/repo-name/issues
-[license-shield]: https://img.shields.io/github/license/obverter/repo-name.svg?style=for-the-badge
-[license-url]: https://github.com/obverter/repo-name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/obverter/tmz-poetry.svg?style=for-the-badge
+[contributors-url]: https://github.com/obverter/tmz-poetry/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/obverter/tmz-poetry.svg?style=for-the-badge
+[forks-url]: https://github.com/obverter/tmz-poetry/network/members
+[stars-shield]: https://img.shields.io/github/stars/obverter/tmz-poetry.svg?style=for-the-badge
+[stars-url]: https://github.com/obverter/tmz-poetry/stargazers
+[issues-shield]: https://img.shields.io/github/issues/obverter/tmz-poetry.svg?style=for-the-badge
+[issues-url]: https://github.com/obverter/tmz-poetry/issues
+[license-shield]: https://img.shields.io/github/license/obverter/tmz-poetry.svg?style=for-the-badge
+[license-url]: https://github.com/obverter/tmz-poetry/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/BenTylerElliott
 [product-screenshot]: images/screenshot.png
