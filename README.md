@@ -32,7 +32,7 @@
 <h3 align="center">Project Title</h3>
 
   <p align="center">
-    It is said that baseball is a game of inches. But what if it were a game of pounds?
+    Turning trash into treasure one headline at a time.
     <br />
     <a href="https://github.com/obverter/tmz-poetry"><strong>Explore the docs »</strong></a>
     <br />
