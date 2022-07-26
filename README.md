@@ -144,7 +144,7 @@ First, you'll need to clone the repo. Follow these instructions carefully.
 - [ ] Build NLP module.
 - [ ] Build BKG module.
 - [ ] Put it all together.
-- [ ] Revisit this project in np.random.default_rng().integers(low=1, high=12) months.
+- [ ] Revisit this project in `np.random.default_rng().integers(low=1, high=12)` months.
 
 See the [open issues](https://github.com/obverter/tmz-poetry/issues) for a full list of proposed features (and known issues).
 
