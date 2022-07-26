@@ -2,7 +2,6 @@
 # To add a new markdown cell, type '# %% [markdown]'
 # %%
 import pandas as pd
-from tqdm import tqdm
 import requests
 from bs4 import BeautifulSoup
 
