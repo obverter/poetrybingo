@@ -29,7 +29,7 @@
     <img src="images/tmz-poetry.png">
   </a>
 
-<h3 align="center">Project Title</h3>
+<h3 align="center">TMZ Poetry</h3>
 
   <p align="center">
     Turning trash into treasure one headline at a time.
