@@ -36,9 +36,17 @@ for trash in enumerate(tmz):
     story = pd.DataFrame([story])
     stories = pd.concat([stories, story], ignore_index=True)
 
-    # stories |= story
-
     count += 1
 
-
-stories.to_csv("headlines.csv")
+try:
+    current = pd.read_csv('../headlines.csv')
+    export = pd.concat([current, stories], ignore_index=True)
+    export = export[['timestamp', 'headline']]
+    export = export.drop_duplicates(subset ="timestamp", keep = 'first', inplace = True)
+    export.to_csv('headlines.csv')
+except Exception:
+    current = pd.read_csv('../init.csv')
+    export = pd.concat([current, stories], ignore_index=True)
+    export = export[['timestamp', 'headline']]
+    export = export.drop_duplicates(subset ="timestamp", keep = "first", inplace = False)
+    export.to_csv('headlines.csv')
