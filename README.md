@@ -34,7 +34,7 @@
   <p align="center">
     Turning trash into treasure one headline at a time.
     <br />
-    <a href="https://github.com/obverter/tmz-poetry/headlines.csv"><strong>Explore the headlines »</strong></a>
+    <a href="headlines.csv"><strong>Explore the headlines »</strong></a>
     <br />
     <br />
     <a href="https://random.dog/">Enjoy a picture of a dog</a>
