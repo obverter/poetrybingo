@@ -1,53 +1,44 @@
-# To add a new cell, type '# %%'
-# To add a new markdown cell, type '# %% [markdown]'
-# %%
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-
-# %%
-url = 'https://www.tmz.com'
+# Grab trash
+url = "https://www.tmz.com"
 req = requests.get(url)
-doc = BeautifulSoup(req.text)
+doc = BeautifulSoup(req.text, features="html5lib")
 
-
-# %%
-stories = {}
-for trash in doc.select('header > a > h2'):
-        raw = trash.text
-        story = {
-                "headline": raw.strip().replace("\n", " ")
-        }
-        stories |= story
-stories
-
-
-# %%
-tmz = doc.select('header a h2')
+tmz = doc.select("header a h2")
 tmz_timestamps = doc.select(".article")
 stories = pd.DataFrame(columns=["timestamp", "headline"])
+new_stories = pd.DataFrame(columns=["timestamp", "headline"])
 paragraphs = []
 count = 0
-for trash in enumerate(tmz):
+for _ in enumerate(tmz):
+    # Grab headline
     headline = tmz[count].text
     headline = headline.replace("\n", " ").upper()
 
-    timestamp = tmz_timestamps[count].text.split('PT')[-20:]
+    # Grab timestamp
+    timestamp = tmz_timestamps[count].text.split("PT")[-20:]
     timestamp = timestamp[0][-20:]
     timestamp = timestamp.strip()
 
-    story = {
-        "timestamp": timestamp,
-        "headline": headline
-    }
+    # Prep for append
+    story = {"timestamp": [timestamp], "headline": [headline]}
 
-    stories = stories.append(story, ignore_index=True)
+    # append
+    new_stories |= story
+
     count += 1
 
+try:
+    # Pull current headlines.csv
+    current = pd.read_csv("headlines.csv")
+except Exception:
+    # Init headlines.csv if it doesn't exist
+    current = pd.DataFrame(columns=["timestamp", "headline"])
 
-# %%
-stories.to_csv('headlines.csv')
+merge = pd.concat([current, new_stories], ignore_index=True)
+merge = merge[["timestamp", "headline"]]
 
-
-# %%
+merge.to_csv("headlines.csv")
