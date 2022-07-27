@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 # Grab trash
 url = "https://www.tmz.com"
 req = requests.get(url)
-doc = BeautifulSoup(req.text, features="html5lib")
+doc = BeautifulSoup(req.text)
 
 tmz = doc.select("header a h2")
 tmz_timestamps = doc.select(".article")
