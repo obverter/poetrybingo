@@ -39,13 +39,13 @@ for trash in enumerate(tmz):
     count += 1
 
 try:
-    current = pd.read_csv('../headlines.csv')
+    current = pd.read_csv('headlines.csv')
     export = pd.concat([current, stories], ignore_index=True)
     export = export[['timestamp', 'headline']]
     export = export.drop_duplicates(subset ="timestamp", keep = 'first', inplace = True)
     export.to_csv('headlines.csv')
 except Exception:
-    current = pd.read_csv('../init.csv')
+    current = pd.read_csv('init.csv')
     export = pd.concat([current, stories], ignore_index=True)
     export = export[['timestamp', 'headline']]
     export = export.drop_duplicates(subset ="timestamp", keep = "first", inplace = False)
