@@ -34,14 +34,14 @@
   <p align="center">
     Turning trash into treasure one headline at a time.
     <br />
-    <a href="https://github.com/obverter/tmz-poetry"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/obverter/tmz-poetry/headlines.csv"><strong>Explore the headlines »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/obverter/tmz-poetry">View Demo</a>
+    <a href="https://random.dog/">Enjoy a picture of a dog</a>
     ·
-    <a href="https://github.com/obverter/tmz-poetry/issues">Report Bug</a>
+    <a href="https://github.com/obverter/tmz-poetry/issues">Report 🐛</a>
     ·
-    <a href="https://github.com/obverter/tmz-poetry/issues">Request Feature</a>
+    <a href="https://github.com/obverter/tmz-poetry/issues">Request a Feature That I Probably Can't Build</a>
   </p>
 </div>
 
@@ -80,6 +80,27 @@
 
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `obverter`, `tmz-poetry`, `obverter`, `BenTylerElliott`, `obverter.com`, `ben`, `TMZ Poetry`, `Turning Trash Into Treasure` -->
 
+Generally speaking, recycling is important. So is reusing. But reducing...?
+
+When it comes to art, reducing is only desirable within a project's bounds.
+
+<img src="https://news.artnet.com/app/news-upload/2018/01/TMNT_Michelangelo-10-1024x683.jpg"></img>
+
+> “The sculpture is already complete within the marble block, before I start my work. It is already there, I just have to chisel away the superfluous material.”
+> <cite>Michelangelo di Lodovico Buonarroti Simoni</cite>
+
+Once TMZ headlines have been out in the world for a day or three, they tend to fade from the zeitgeist. This is a shame.
+
+And so I built this thing, which:
+
+1. Automatically scrapes TMZ's main blogroll every five minutes. ✅
+2. Appends new headlines to a monster, forever-updating csv. (`headlines.csv` descending by timestamp) ✅
+3. Uses those headlines to train a handwritten grammar in spaCy. 🔨
+4. Generates poetry from the headline corpus. 🔨
+5. Overlays said poetry onto images scraped from Wikimedia Commons 🔨
+
+You're welcome.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
@@ -94,6 +115,7 @@
 * [JQuery](https://jquery.com) -->
 
 - [Python](https://python.org)
+- [spaCy](https://spacy.io/)
 - [GitHub Actions](https://github.com/features/actions)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -130,6 +152,8 @@ First, you'll need to clone the repo. Follow these instructions carefully.
 <!-- USAGE EXAMPLES -->
 
 ## Usage
+
+Apply directly to the forehead.
 
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
 
