@@ -87,7 +87,7 @@ When it comes to art, reducing is only desirable within a project's bounds.
 <img src="https://news.artnet.com/app/news-upload/2018/01/TMNT_Michelangelo-10-1024x683.jpg"></img>
 
 > “The sculpture is already complete within the marble block, before I start my work. It is already there, I just have to chisel away the superfluous material.”
-> <cite>Michelangelo di Lodovico Buonarroti Simoni</cite>
+> <cite>——Michelangelo di Lodovico Buonarroti Simoni</cite>
 
 Once TMZ headlines have been out in the world for a day or three, they tend to fade from the zeitgeist. This is a shame.
 
