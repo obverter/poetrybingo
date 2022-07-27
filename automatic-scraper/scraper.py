@@ -16,7 +16,7 @@ count = 0
 for _ in enumerate(tmz):
     # Grab headline
     headline = tmz[count].text
-    headline = headline.replace("\n", " ").upper()
+    headline = headline.replace("\n", " ")
 
     # Grab timestamp
     timestamp = tmz_timestamps[count].text.split("PT")[-20:]
