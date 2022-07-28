@@ -45,6 +45,13 @@ for trash in enumerate(tmz):
     # convert to df
     story = pd.DataFrame([story])
 
+    # convert story 12AP to 24
+    try:
+        story["time"] = pd.to_datetime(story["time"], format="%I:%M %p").dt.strftime(
+            "%H:%M"
+        )
+    except:
+        story["time"] = story["time"]
 
     story.convert_dtypes()
 
@@ -65,6 +72,8 @@ for trash in enumerate(tmz):
     count += 1
 
 stories = stories[["headline", "timestamp", "year", "month", "day", "hour", "minute"]]
+stories
+
 
 existing = pd.read_csv("headlines.csv")
 existing = existing.dropna(axis=1).set_index("Unnamed: 0")
@@ -75,6 +84,9 @@ existing["month"] = pd.DatetimeIndex(existing["timestamp"]).month
 existing["day"] = pd.DatetimeIndex(existing["timestamp"]).day
 existing["hour"] = pd.DatetimeIndex(existing["timestamp"]).hour
 existing["minute"] = pd.DatetimeIndex(existing["timestamp"]).minute
+
+existing
+
 
 try:
     existing = pd.read_csv("headlines.csv")
@@ -98,9 +110,18 @@ try:
         ]
     ]
 except:
-    print("try failed")
+    pass
 
 export = pd.concat([existing, stories], ignore_index=True)
-export.convert_dtypes()
 export = export[["headline", "timestamp", "year", "month", "day", "hour", "minute"]]
+
+export = export.drop_duplicates(subset=["timestamp"], keep="first")
+export = export.sort_values(
+    by=["year", "month", "day", "hour", "minute"],
+    ascending=[False, False, False, False, False],
+    ignore_index=True,
+)
+export
+
+
 export.to_csv("headlines.csv")
