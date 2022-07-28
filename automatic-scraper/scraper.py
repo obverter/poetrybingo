@@ -117,7 +117,7 @@ export = export[["headline", "timestamp", "year", "month", "day", "hour", "minut
 
 # Dropping duplicates and sorting the dataframe by year, month, day, hour, and
 # minute.
-export = export.drop_duplicates(subset=["timestamp"], keep="first")
+export = export.drop_duplicates(subset=["timestamp"], keep="last")
 export = export.sort_values(
     by=["year", "month", "day", "hour", "minute"],
     ascending=[False, False, False, False, False],
