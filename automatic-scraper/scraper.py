@@ -126,3 +126,4 @@ export = export.sort_values(
 
 # Writing the dataframe to a csv file.
 export.to_csv("headlines.csv")
+export.to_json("headlines.json")
