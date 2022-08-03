@@ -7,7 +7,6 @@ import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
 import re
-from tqdm import tqdm
 import json
 
 
@@ -21,7 +20,7 @@ raw_titles = doc.select("header > a > h2")
 
 headlines = []
 valid_punct = ["'", "!", "?"]
-for count, title in enumerate(tqdm(enumerate(raw_titles))):
+for count, title in enumerate(enumerate(raw_titles)):
     print("- - -")
     headline = raw_titles[count].get_text().strip().replace("\n", " ") + "."
     if headline[-2] in valid_punct:
