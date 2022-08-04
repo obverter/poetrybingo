@@ -8,6 +8,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import re
 import json
+import random
 
 
 url = "https://www.tmz.com"
@@ -127,6 +128,36 @@ export = export.sort_values(
 export = export.drop_duplicates(subset=["timestamp"], keep="first", ignore_index=True)
 
 
+# Now we need to instantiate a training file that we can
+# run through our haikuifier.
+
+
+# Here we're taking the headlines column from the export dataframe and converting it to a list.
+lesson = export["headline"].to_list()
+
+# Taking the list of headlines and converting it to a clean string.
+flattened = ", ".join(lesson).replace(" ...", "")
+flattened = flattened.replace(".", "")
+flattened = flattened.replace(",", "").lower()
+flattened = flattened.replace("!", "").lower()
+flattened = flattened.split(" ")
+filtered = [element for element in flattened if element != None]
+
+def blend(filtered, times):
+    out = []
+    for _ in range(times):
+        blend = random.sample(filtered, len(filtered))
+        out.append(blend)
+    flat = [item for sublist in out for item in sublist]
+
+    return [element for element in flat if element != None]
+
+corpus = blend(filtered, 4)
+
+corpus = " ".join(corpus)
+
+with open("data/haiku_corpus.txt", "w") as f:
+    f.write(corpus)
 # Writing the dataframe to a csv file.
 export.to_csv("headlines.csv")
 export.to_json("headlines.json")
