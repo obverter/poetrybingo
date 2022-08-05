@@ -2,6 +2,7 @@
 # To add a new markdown cell, type ' [markdown]'
 
 # sourcery skip: for-index-underscore
+from operator import index
 import pandas as pd
 import requests
 from datetime import datetime
@@ -126,6 +127,9 @@ export = export.sort_values(
     ignore_index=True,
 )
 export = export.drop_duplicates(subset=["timestamp"], keep="first", ignore_index=True)
+test = export.fillna(method='ffill')
+
+#todo: tags are getting dropped from output. fix this. test.csv is progress.
 
 
 # Now we need to instantiate a training file that we can
@@ -158,6 +162,15 @@ corpus = " ".join(corpus)
 
 with open("data/haiku_corpus.txt", "w") as f:
     f.write(corpus)
+
+def dump_haiku(corpus):
+    with open("data/haiku_corpus.json", "w") as f:
+        haiku_json = json.dump(corpus, f)
+        haiku_json = re.sub("[^0-9a-zA-Z]+", "", str(haiku_json))
+    return haiku_json
+
+dump_haiku(corpus)
 # Writing the dataframe to a csv file.
+test.to_csv("test.csv")
 export.to_csv("headlines.csv")
 export.to_json("headlines.json")

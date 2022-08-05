@@ -1,0 +1,167 @@
+Index: headlines.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>,headline,timestamp,year,month,day,hour,minute\n0, Jennifer Lopez Rehearsing For Capri Concert ... Charity Event For Ukraine ,7/29/2022 5:07 PM,2022,7,29,17,7\n1,\" DJ Khaled & 'Pee' Thomas Yes, We're Millionaires ... But $1.2 Bil Lottos Don't Come Often!!! \",7/29/2022 4:27 PM,2022,7,29,16,27\n2, Beyonce Album Looks High Fashion From B’Day to Lemonade And Now Renaissance!!! ,7/29/2022 3:41 PM,2022,7,29,15,41\n3, Netflix Sues Barlow & Bear for Musical ... Thou Hath Stolen Our 'Bridgerton!!!' ,7/29/2022 2:29 PM,2022,7,29,14,29\n4, Shakira Prosecutors Want Her To Serve 8-Year Prison Sentence ... In Tax Fraud Case ,7/29/2022 1:51 PM,2022,7,29,13,51\n5, Top H.S. Recruit Aidan Mizell Commits To Florida ... Brings Out Gators For Ceremony!!! ,7/29/2022 12:25 PM,2022,7,29,12,25\n6,\" Jennifer Lopez Gets a Lift, Grabs a Bite in Capri While Ben Hangs in L.A. \",7/29/2022 11:51 AM,2022,7,29,11,51\n7,\" Taylor Swift, Kim K, Blake Shelton Celebs Flyin' Private ... Leaving Huge Carbon Footprint!!! \",7/29/2022 10:47 AM,2022,7,29,10,47\n8, Rev. Jesse Jackson Sends Letter to Sesame Place ... Ideas to End Racial Discrimination ,7/29/2022 10:18 AM,2022,7,29,10,18\n9, Tyga Sorry for Mocking Mexican-Americans Takes Down Offensive Video ,7/29/2022 10:16 AM,2022,7,29,10,16\n10, Shanna Moakler All Smiles At Dave & Buster's With BF... Hours After Domestic Violence Call ,7/29/2022 8:14 AM,2022,7,29,8,14\n11, Dua Lipa Apologizes for Fireworks Inside Concert ... New Video Shows the Terror ,7/29/2022 7:39 AM,2022,7,29,7,39\n12, Will Smith 'I Am Deeply Remorseful' For Slapping Chris Rock ,7/29/2022 7:28 AM,2022,7,29,7,28\n13,\" Beyonce 'Renaissance' is Here, S/O Beyhive!!! Thanks for 'Love & Protection' Over Leak \",7/29/2022 7:18 AM,2022,7,29,7,18\n14, Supreme Court Justice Alito Mocks Prince Harry For Bashing Decision overturning Roe v. Wade ,7/29/2022 6:49 AM,2022,7,29,6,49\n15, Bob Dylan Accuser Drops Sex Abuse Suit ,7/29/2022 6:36 AM,2022,7,29,6,36\n16, Jeff Ross Jon Stewart Feels the Pain of Veterans ... He Really Should Run for Prez!!! ,7/29/2022 6:31 AM,2022,7,29,6,31\n17, Ukraine Prez Volodymyr Zelensky Strong Support For Vogue Shoot ... From Ukrainian Relief Orgs ,7/29/2022 1:00 AM,2022,7,29,1,0\n18, Jeff Bezos' Parents Buy MORE Real Estate ... Real Housewife's $44 Mil FL Mansion!!! ,7/29/2022 12:30 AM,2022,7,29,0,30\n19, Ted Cruz Claims Jon Stewart Got the Vet Bill Wrong ,7/29/2022 12:20 AM,2022,7,29,0,20\n20, Ric Flair On Vince McMahon's WWE Retirement: ... 'I Hate It' ,7/29/2022 12:10 AM,2022,7,29,0,10\n21, Guess Who This Georgia Peach Turned Into! ,7/29/2022 12:01 AM,2022,7,29,0,1\n22, Shanna Moakler Cops Respond to 'Domestic Disturbance' Call ,7/28/2022 6:31 PM,2022,7,28,18,31\n23, Monkey Attacks Terrorizing Japanese City ... Trying to Snatch Human Babies!!! ,7/28/2022 6:20 PM,2022,7,28,18,20\n24,\" Candace Cameron Bure Vs. JoJo Siwa Daughter Rips JoJo ... Photo Snub's No Biggie, Grow Up!!! \",7/28/2022 5:53 PM,2022,7,28,17,53\n25, 'Long Island Medium' Theresa Defends Buying 5-Month-Old Granddaughter Gucci Bag ... Cutest Binki Holder Ever!!! ,7/28/2022 4:19 PM,2022,7,28,16,19\n26, Dwight Howard Crashes WWE Tryout ... Cuts Epic Promo!! ,7/28/2022 3:36 PM,2022,7,28,15,36\n27,\" Joey Badass Fans Gotta Chill, Chris Brown Has My Respect And Delta Can Too, IF ... \",7/28/2022 3:33 PM,2022,7,28,15,33\n28, Report: Zion Williamson Weight Clause In New Contract Could Lose Guaranteed $$$ ,7/28/2022 2:58 PM,2022,7,28,14,58\n29, Beyoncé Catches R&Beef From Kelis!!! Claims Sample Was Stolen ,7/28/2022 1:41 PM,2022,7,28,13,41\n30, Mike Evans Unveils New Harry Potter Tattoo 'But I Am The Chosen One' ,7/28/2022 12:19 PM,2022,7,28,12,19\n31, Lamar Odom My Social Media's Been Highjacked ... Old Manager Costing Me $$ ,7/28/2022 12:00 PM,2022,7,28,12,0\n32, Jon Stewart Obliterates GOP for Blocking Vet Bill ... 'Sen. Toomey Is a F***ing Coward' ,7/28/2022 10:26 AM,2022,7,28,10,26\n33,\" Aniston, Kimmel & Bateman A-List Vacay Pals Return to L.A.!!! Back from the Bahamas \",7/28/2022 9:05 AM,2022,7,28,9,5\n34,\" Hong Kong Concert Video Monitor Falls, Crushing Dancers Below \",7/28/2022 9:01 AM,2022,7,28,9,1\n35, Dua Lipa Fans Light Fireworks Inside Arena ... Cops Investigating ,7/28/2022 8:45 AM,2022,7,28,8,45\n36,\" Johnny Depp Oui, We Love You!!! Fans Swarm in Paris \",7/28/2022 6:45 AM,2022,7,28,6,45\n37, Sesame Place $25 Million Class Action Suit Claiming Racism ,7/28/2022 6:43 AM,2022,7,28,6,43\n38,\" Gwenyth Paltrow Hey Hailey, I f***ed your Father!!! ... True Bathroom Humor \",7/28/2022 6:23 AM,2022,7,28,6,23\n39, Michael Savarino Coach K's Grandson ... Pleads Guilty To DWI ,7/28/2022 6:16 AM,2022,7,28,6,16\n40, Angie Everhart Accused of Egging Neighbor's Apartment Cops Called to Scene ,7/28/2022 1:00 AM,2022,7,28,1,0\n41, Tichina Arnold Divorce Finalized ... I'm Finally Single!!! ,7/28/2022 12:30 AM,2022,7,28,0,30\n42, 'Love & Marriage' Melody Shari Ex Martell Holt Hasn't Changed ... He's Still Disrespectful!!! ,7/28/2022 12:20 AM,2022,7,28,0,20\n43, Wrestling Star Hornswoggle Defends Jerry Jones' M-Word Use 'Didn't Need To Apologize' ,7/28/2022 12:10 AM,2022,7,28,0,10\n44, Kendall & Kylie's Nanny In Season 1 of 'KUWTK' 'Memba Her?! ,7/28/2022 12:01 AM,2022,7,28,0,1\n45, JayDaYoungan Shot and Killed Outside Home ,7/27/2022 8:46 PM,2022,7,27,20,46\n46, Mike Tyson Using Cane To Get Around ... But I'm OK!!! ,7/27/2022 3:56 PM,2022,7,27,15,56\n47,\" Britney Spears Will Not Be Deposed, Judge Rules \",7/27/2022 3:26 PM,2022,7,27,15,26\n48, Jeff Bezos Parents Buy $34M Mega Mansion in FL ,7/27/2022 3:01 PM,2022,7,27,15,1\n49, Joey Chestnut Downs 44 Cane's Chicken Fingers In Five Minutes!!! ... World Record ,7/27/2022 2:06 PM,2022,7,27,14,6\n50, Brittney Griner I Flew To Russia Despite Travel Warning ... So I Could Help My Team ,7/27/2022 1:06 PM,2022,7,27,13,6\n51, Tony Dow 'Leave It To Beaver' Star Dead At 77 ,7/27/2022 12:27 PM,2022,7,27,12,27\n52, Beyoncé ‘Renaissance’ Album Leak Beyhive Says Not So Fast!!! ,7/27/2022 12:02 PM,2022,7,27,12,2\n53, Ukrainian Prez Volodymyr Zelensky Dragged Over Vogue Cover Shoot with Wife ,7/27/2022 10:15 AM,2022,7,27,10,15\n54, GEORGE FLOYD'S DEATH Former Cops Get Prison Time ... For Violating His Civil Rights ,7/27/2022 10:14 AM,2022,7,27,10,14\n55, Kanye West Gifts A$AP Bari New Maybach… Days After He Wrecked His Old One!!! ,7/27/2022 8:18 AM,2022,7,27,8,18\n56, Norman Lear Singin' 'That's Amore' At 100 ... The Miracle of Being Alive!!! ,7/27/2022 8:14 AM,2022,7,27,8,14\n57, Jamie Foxx Wild Sing-along on Italian Vacay ... 'I'm Jamie Motherf***ing Foxx!!!' ,7/27/2022 8:02 AM,2022,7,27,8,2\n58, 'Top Chef' Star Howard Kleinberg Dead at 46 ,7/27/2022 7:39 AM,2022,7,27,7,39\n59, Shawn Mendes Cancels Tour ... For Mental Health Break ,7/27/2022 7:17 AM,2022,7,27,7,17\n60, Mama June Honey Boo Boo Too Young For Gastric Sleeve!!! ,7/27/2022 1:00 AM,2022,7,27,1,0\n61, Britney Spears Lawyer Doubles Down ... She Won't Sit for Depo or Testify at Trial,7/26/2022 4:31 PM,2022,7,26,16,31\n62, Jerry Jones Apologizes For Derogatory Term ... At Cowboys Camp ,7/26/2022 4:23 PM,2022,7,26,16,23\n63, Buzz Aldrin Apollo 11 Jacket Sells For $2.7 Mil ... Space Artifact Record!!!,7/26/2022 4:17 PM,2022,7,26,16,17\n64, Donald Trump Protesters Flood Hotel ... For 1st Speech Back in D.C. Since Jan. 6,7/26/2022 3:27 PM,2022,7,26,15,27\n65, Kevin Hart Shames Ex-NFLer Over Nudist Colony Hobby With Wife ... 'You Hear Whatchu Sayin'!?!',7/26/2022 2:27 PM,2022,7,26,14,27\n66, Jim Harbaugh I'm Willing To Raise My Players' Baby ... If Pregnancy Unplanned,7/26/2022 10:04 AM,2022,7,26,10,4\n67, 'RHONY' Star Sonja Morgan Lists NYC Townhouse ... Let's Try This Again!!!,7/26/2022 9:50 AM,2022,7,26,9,50\n68, Tony Dow 'Leave it to Beaver' Star Still Alive ... Despite Facebook Death Post,7/26/2022 8:56 AM,2022,7,26,8,56\n69, Helicopter Tragedy Man Dies Walking into Blades ... Cops Fear He Was Attempting Selfie,7/26/2022 6:58 AM,2022,7,26,6,58\n70, California Soccer Player Dies Following In-Game Brawl ... Involving Players & Fans,7/26/2022 6:53 AM,2022,7,26,6,53\n71, Lana Del Rey Gets TRO Against Alleged Stalker ... He Stole My Car!!!,7/26/2022 6:37 AM,2022,7,26,6,37\n72, Taco Bell Employee Allegedly Throws Boiling Hot Water at Customers,7/26/2022 6:27 AM,2022,7,26,6,27\n73, Brittney Griner Sends Message To Wife In Court ... 'Good Luck On The Bar Exam',7/26/2022 6:13 AM,2022,7,26,6,13\n74, PetSmart Sued Your Groomers Killed My Dog!!!,7/26/2022 1:00 AM,2022,7,26,1,0\n75, 'RHOA' STAR SHEREE WHITFIELD Dating Martell Holt ... From 'Love & Marriage Huntsville',7/26/2022 12:50 AM,2022,7,26,0,50\n76, 'SHAHS OF SUNSET' Mike CHARGED WITH DOMESTIC VIOLENCE,7/26/2022 12:40 AM,2022,7,26,0,40\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/headlines.csv b/headlines.csv
+--- a/headlines.csv	(revision 582ed8e3ff19064c7d0478d3861b3f7525a2abcc)
++++ b/headlines.csv	(date 1659154081909)
+@@ -1,78 +1,79 @@
+ ,headline,timestamp,year,month,day,hour,minute
+-0, Jennifer Lopez Rehearsing For Capri Concert ... Charity Event For Ukraine ,7/29/2022 5:07 PM,2022,7,29,17,7
+-1," DJ Khaled & 'Pee' Thomas Yes, We're Millionaires ... But $1.2 Bil Lottos Don't Come Often!!! ",7/29/2022 4:27 PM,2022,7,29,16,27
+-2, Beyonce Album Looks High Fashion From B’Day to Lemonade And Now Renaissance!!! ,7/29/2022 3:41 PM,2022,7,29,15,41
+-3, Netflix Sues Barlow & Bear for Musical ... Thou Hath Stolen Our 'Bridgerton!!!' ,7/29/2022 2:29 PM,2022,7,29,14,29
+-4, Shakira Prosecutors Want Her To Serve 8-Year Prison Sentence ... In Tax Fraud Case ,7/29/2022 1:51 PM,2022,7,29,13,51
+-5, Top H.S. Recruit Aidan Mizell Commits To Florida ... Brings Out Gators For Ceremony!!! ,7/29/2022 12:25 PM,2022,7,29,12,25
+-6," Jennifer Lopez Gets a Lift, Grabs a Bite in Capri While Ben Hangs in L.A. ",7/29/2022 11:51 AM,2022,7,29,11,51
+-7," Taylor Swift, Kim K, Blake Shelton Celebs Flyin' Private ... Leaving Huge Carbon Footprint!!! ",7/29/2022 10:47 AM,2022,7,29,10,47
+-8, Rev. Jesse Jackson Sends Letter to Sesame Place ... Ideas to End Racial Discrimination ,7/29/2022 10:18 AM,2022,7,29,10,18
+-9, Tyga Sorry for Mocking Mexican-Americans Takes Down Offensive Video ,7/29/2022 10:16 AM,2022,7,29,10,16
+-10, Shanna Moakler All Smiles At Dave & Buster's With BF... Hours After Domestic Violence Call ,7/29/2022 8:14 AM,2022,7,29,8,14
+-11, Dua Lipa Apologizes for Fireworks Inside Concert ... New Video Shows the Terror ,7/29/2022 7:39 AM,2022,7,29,7,39
+-12, Will Smith 'I Am Deeply Remorseful' For Slapping Chris Rock ,7/29/2022 7:28 AM,2022,7,29,7,28
+-13," Beyonce 'Renaissance' is Here, S/O Beyhive!!! Thanks for 'Love & Protection' Over Leak ",7/29/2022 7:18 AM,2022,7,29,7,18
+-14, Supreme Court Justice Alito Mocks Prince Harry For Bashing Decision overturning Roe v. Wade ,7/29/2022 6:49 AM,2022,7,29,6,49
+-15, Bob Dylan Accuser Drops Sex Abuse Suit ,7/29/2022 6:36 AM,2022,7,29,6,36
+-16, Jeff Ross Jon Stewart Feels the Pain of Veterans ... He Really Should Run for Prez!!! ,7/29/2022 6:31 AM,2022,7,29,6,31
+-17, Ukraine Prez Volodymyr Zelensky Strong Support For Vogue Shoot ... From Ukrainian Relief Orgs ,7/29/2022 1:00 AM,2022,7,29,1,0
+-18, Jeff Bezos' Parents Buy MORE Real Estate ... Real Housewife's $44 Mil FL Mansion!!! ,7/29/2022 12:30 AM,2022,7,29,0,30
+-19, Ted Cruz Claims Jon Stewart Got the Vet Bill Wrong ,7/29/2022 12:20 AM,2022,7,29,0,20
+-20, Ric Flair On Vince McMahon's WWE Retirement: ... 'I Hate It' ,7/29/2022 12:10 AM,2022,7,29,0,10
+-21, Guess Who This Georgia Peach Turned Into! ,7/29/2022 12:01 AM,2022,7,29,0,1
+-22, Shanna Moakler Cops Respond to 'Domestic Disturbance' Call ,7/28/2022 6:31 PM,2022,7,28,18,31
+-23, Monkey Attacks Terrorizing Japanese City ... Trying to Snatch Human Babies!!! ,7/28/2022 6:20 PM,2022,7,28,18,20
+-24," Candace Cameron Bure Vs. JoJo Siwa Daughter Rips JoJo ... Photo Snub's No Biggie, Grow Up!!! ",7/28/2022 5:53 PM,2022,7,28,17,53
+-25, 'Long Island Medium' Theresa Defends Buying 5-Month-Old Granddaughter Gucci Bag ... Cutest Binki Holder Ever!!! ,7/28/2022 4:19 PM,2022,7,28,16,19
+-26, Dwight Howard Crashes WWE Tryout ... Cuts Epic Promo!! ,7/28/2022 3:36 PM,2022,7,28,15,36
+-27," Joey Badass Fans Gotta Chill, Chris Brown Has My Respect And Delta Can Too, IF ... ",7/28/2022 3:33 PM,2022,7,28,15,33
+-28, Report: Zion Williamson Weight Clause In New Contract Could Lose Guaranteed $$$ ,7/28/2022 2:58 PM,2022,7,28,14,58
+-29, Beyoncé Catches R&Beef From Kelis!!! Claims Sample Was Stolen ,7/28/2022 1:41 PM,2022,7,28,13,41
+-30, Mike Evans Unveils New Harry Potter Tattoo 'But I Am The Chosen One' ,7/28/2022 12:19 PM,2022,7,28,12,19
+-31, Lamar Odom My Social Media's Been Highjacked ... Old Manager Costing Me $$ ,7/28/2022 12:00 PM,2022,7,28,12,0
+-32, Jon Stewart Obliterates GOP for Blocking Vet Bill ... 'Sen. Toomey Is a F***ing Coward' ,7/28/2022 10:26 AM,2022,7,28,10,26
+-33," Aniston, Kimmel & Bateman A-List Vacay Pals Return to L.A.!!! Back from the Bahamas ",7/28/2022 9:05 AM,2022,7,28,9,5
+-34," Hong Kong Concert Video Monitor Falls, Crushing Dancers Below ",7/28/2022 9:01 AM,2022,7,28,9,1
+-35, Dua Lipa Fans Light Fireworks Inside Arena ... Cops Investigating ,7/28/2022 8:45 AM,2022,7,28,8,45
+-36," Johnny Depp Oui, We Love You!!! Fans Swarm in Paris ",7/28/2022 6:45 AM,2022,7,28,6,45
+-37, Sesame Place $25 Million Class Action Suit Claiming Racism ,7/28/2022 6:43 AM,2022,7,28,6,43
+-38," Gwenyth Paltrow Hey Hailey, I f***ed your Father!!! ... True Bathroom Humor ",7/28/2022 6:23 AM,2022,7,28,6,23
+-39, Michael Savarino Coach K's Grandson ... Pleads Guilty To DWI ,7/28/2022 6:16 AM,2022,7,28,6,16
+-40, Angie Everhart Accused of Egging Neighbor's Apartment Cops Called to Scene ,7/28/2022 1:00 AM,2022,7,28,1,0
+-41, Tichina Arnold Divorce Finalized ... I'm Finally Single!!! ,7/28/2022 12:30 AM,2022,7,28,0,30
+-42, 'Love & Marriage' Melody Shari Ex Martell Holt Hasn't Changed ... He's Still Disrespectful!!! ,7/28/2022 12:20 AM,2022,7,28,0,20
+-43, Wrestling Star Hornswoggle Defends Jerry Jones' M-Word Use 'Didn't Need To Apologize' ,7/28/2022 12:10 AM,2022,7,28,0,10
+-44, Kendall & Kylie's Nanny In Season 1 of 'KUWTK' 'Memba Her?! ,7/28/2022 12:01 AM,2022,7,28,0,1
+-45, JayDaYoungan Shot and Killed Outside Home ,7/27/2022 8:46 PM,2022,7,27,20,46
+-46, Mike Tyson Using Cane To Get Around ... But I'm OK!!! ,7/27/2022 3:56 PM,2022,7,27,15,56
+-47," Britney Spears Will Not Be Deposed, Judge Rules ",7/27/2022 3:26 PM,2022,7,27,15,26
+-48, Jeff Bezos Parents Buy $34M Mega Mansion in FL ,7/27/2022 3:01 PM,2022,7,27,15,1
+-49, Joey Chestnut Downs 44 Cane's Chicken Fingers In Five Minutes!!! ... World Record ,7/27/2022 2:06 PM,2022,7,27,14,6
+-50, Brittney Griner I Flew To Russia Despite Travel Warning ... So I Could Help My Team ,7/27/2022 1:06 PM,2022,7,27,13,6
+-51, Tony Dow 'Leave It To Beaver' Star Dead At 77 ,7/27/2022 12:27 PM,2022,7,27,12,27
+-52, Beyoncé ‘Renaissance’ Album Leak Beyhive Says Not So Fast!!! ,7/27/2022 12:02 PM,2022,7,27,12,2
+-53, Ukrainian Prez Volodymyr Zelensky Dragged Over Vogue Cover Shoot with Wife ,7/27/2022 10:15 AM,2022,7,27,10,15
+-54, GEORGE FLOYD'S DEATH Former Cops Get Prison Time ... For Violating His Civil Rights ,7/27/2022 10:14 AM,2022,7,27,10,14
+-55, Kanye West Gifts A$AP Bari New Maybach… Days After He Wrecked His Old One!!! ,7/27/2022 8:18 AM,2022,7,27,8,18
+-56, Norman Lear Singin' 'That's Amore' At 100 ... The Miracle of Being Alive!!! ,7/27/2022 8:14 AM,2022,7,27,8,14
+-57, Jamie Foxx Wild Sing-along on Italian Vacay ... 'I'm Jamie Motherf***ing Foxx!!!' ,7/27/2022 8:02 AM,2022,7,27,8,2
+-58, 'Top Chef' Star Howard Kleinberg Dead at 46 ,7/27/2022 7:39 AM,2022,7,27,7,39
+-59, Shawn Mendes Cancels Tour ... For Mental Health Break ,7/27/2022 7:17 AM,2022,7,27,7,17
+-60, Mama June Honey Boo Boo Too Young For Gastric Sleeve!!! ,7/27/2022 1:00 AM,2022,7,27,1,0
+-61, Britney Spears Lawyer Doubles Down ... She Won't Sit for Depo or Testify at Trial,7/26/2022 4:31 PM,2022,7,26,16,31
+-62, Jerry Jones Apologizes For Derogatory Term ... At Cowboys Camp ,7/26/2022 4:23 PM,2022,7,26,16,23
+-63, Buzz Aldrin Apollo 11 Jacket Sells For $2.7 Mil ... Space Artifact Record!!!,7/26/2022 4:17 PM,2022,7,26,16,17
+-64, Donald Trump Protesters Flood Hotel ... For 1st Speech Back in D.C. Since Jan. 6,7/26/2022 3:27 PM,2022,7,26,15,27
+-65, Kevin Hart Shames Ex-NFLer Over Nudist Colony Hobby With Wife ... 'You Hear Whatchu Sayin'!?!',7/26/2022 2:27 PM,2022,7,26,14,27
+-66, Jim Harbaugh I'm Willing To Raise My Players' Baby ... If Pregnancy Unplanned,7/26/2022 10:04 AM,2022,7,26,10,4
+-67, 'RHONY' Star Sonja Morgan Lists NYC Townhouse ... Let's Try This Again!!!,7/26/2022 9:50 AM,2022,7,26,9,50
+-68, Tony Dow 'Leave it to Beaver' Star Still Alive ... Despite Facebook Death Post,7/26/2022 8:56 AM,2022,7,26,8,56
+-69, Helicopter Tragedy Man Dies Walking into Blades ... Cops Fear He Was Attempting Selfie,7/26/2022 6:58 AM,2022,7,26,6,58
+-70, California Soccer Player Dies Following In-Game Brawl ... Involving Players & Fans,7/26/2022 6:53 AM,2022,7,26,6,53
+-71, Lana Del Rey Gets TRO Against Alleged Stalker ... He Stole My Car!!!,7/26/2022 6:37 AM,2022,7,26,6,37
+-72, Taco Bell Employee Allegedly Throws Boiling Hot Water at Customers,7/26/2022 6:27 AM,2022,7,26,6,27
+-73, Brittney Griner Sends Message To Wife In Court ... 'Good Luck On The Bar Exam',7/26/2022 6:13 AM,2022,7,26,6,13
+-74, PetSmart Sued Your Groomers Killed My Dog!!!,7/26/2022 1:00 AM,2022,7,26,1,0
+-75, 'RHOA' STAR SHEREE WHITFIELD Dating Martell Holt ... From 'Love & Marriage Huntsville',7/26/2022 12:50 AM,2022,7,26,0,50
+-76, 'SHAHS OF SUNSET' Mike CHARGED WITH DOMESTIC VIOLENCE,7/26/2022 12:40 AM,2022,7,26,0,40
++0, Jimmy Sohns 'G-L-O-R-I-A' Singer Dead at 75 ,7/29/2022 5:29 PM,2022,7,29,17,29
++1, Jennifer Lopez Rehearsing For Capri Concert ... Charity Event For Ukraine ,7/29/2022 5:07 PM,2022,7,29,17,7
++2," DJ Khaled & 'Pee' Thomas Yes, We're Millionaires ... But $1.2 Bil Lottos Don't Come Often!!! ",7/29/2022 4:27 PM,2022,7,29,16,27
++3, Beyonce Album Looks High Fashion From B’Day to Lemonade And Now Renaissance!!! ,7/29/2022 3:41 PM,2022,7,29,15,41
++4, Netflix Sues Barlow & Bear for Musical ... Thou Hath Stolen Our 'Bridgerton!!!' ,7/29/2022 2:29 PM,2022,7,29,14,29
++5, Shakira Prosecutors Want Her To Serve 8-Year Prison Sentence ... In Tax Fraud Case ,7/29/2022 1:51 PM,2022,7,29,13,51
++6, Top H.S. Recruit Aidan Mizell Commits To Florida ... Brings Out Gators For Ceremony!!! ,7/29/2022 12:25 PM,2022,7,29,12,25
++7," Jennifer Lopez Gets a Lift, Grabs a Bite in Capri While Ben Hangs in L.A. ",7/29/2022 11:51 AM,2022,7,29,11,51
++8," Taylor Swift, Kim K, Blake Shelton Celebs Flyin' Private ... Leaving Huge Carbon Footprint!!! ",7/29/2022 10:47 AM,2022,7,29,10,47
++9, Rev. Jesse Jackson Sends Letter to Sesame Place ... Ideas to End Racial Discrimination ,7/29/2022 10:18 AM,2022,7,29,10,18
++10, Tyga Sorry for Mocking Mexican-Americans Takes Down Offensive Video ,7/29/2022 10:16 AM,2022,7,29,10,16
++11, Shanna Moakler All Smiles At Dave & Buster's With BF... Hours After Domestic Violence Call ,7/29/2022 8:14 AM,2022,7,29,8,14
++12, Dua Lipa Apologizes for Fireworks Inside Concert ... New Video Shows the Terror ,7/29/2022 7:39 AM,2022,7,29,7,39
++13, Will Smith 'I Am Deeply Remorseful' For Slapping Chris Rock ,7/29/2022 7:28 AM,2022,7,29,7,28
++14," Beyonce 'Renaissance' is Here, S/O Beyhive!!! Thanks for 'Love & Protection' Over Leak ",7/29/2022 7:18 AM,2022,7,29,7,18
++15, Supreme Court Justice Alito Mocks Prince Harry For Bashing Decision overturning Roe v. Wade ,7/29/2022 6:49 AM,2022,7,29,6,49
++16, Bob Dylan Accuser Drops Sex Abuse Suit ,7/29/2022 6:36 AM,2022,7,29,6,36
++17, Jeff Ross Jon Stewart Feels the Pain of Veterans ... He Really Should Run for Prez!!! ,7/29/2022 6:31 AM,2022,7,29,6,31
++18, Ukraine Prez Volodymyr Zelensky Strong Support For Vogue Shoot ... From Ukrainian Relief Orgs ,7/29/2022 1:00 AM,2022,7,29,1,0
++19, Jeff Bezos' Parents Buy MORE Real Estate ... Real Housewife's $44 Mil FL Mansion!!! ,7/29/2022 12:30 AM,2022,7,29,0,30
++20, Ted Cruz Claims Jon Stewart Got the Vet Bill Wrong ,7/29/2022 12:20 AM,2022,7,29,0,20
++21, Ric Flair On Vince McMahon's WWE Retirement: ... 'I Hate It' ,7/29/2022 12:10 AM,2022,7,29,0,10
++22, Guess Who This Georgia Peach Turned Into! ,7/29/2022 12:01 AM,2022,7,29,0,1
++23, Shanna Moakler Cops Respond to 'Domestic Disturbance' Call ,7/28/2022 6:31 PM,2022,7,28,18,31
++24, Monkey Attacks Terrorizing Japanese City ... Trying to Snatch Human Babies!!! ,7/28/2022 6:20 PM,2022,7,28,18,20
++25," Candace Cameron Bure Vs. JoJo Siwa Daughter Rips JoJo ... Photo Snub's No Biggie, Grow Up!!! ",7/28/2022 5:53 PM,2022,7,28,17,53
++26, 'Long Island Medium' Theresa Defends Buying 5-Month-Old Granddaughter Gucci Bag ... Cutest Binki Holder Ever!!! ,7/28/2022 4:19 PM,2022,7,28,16,19
++27, Dwight Howard Crashes WWE Tryout ... Cuts Epic Promo!! ,7/28/2022 3:36 PM,2022,7,28,15,36
++28," Joey Badass Fans Gotta Chill, Chris Brown Has My Respect And Delta Can Too, IF ... ",7/28/2022 3:33 PM,2022,7,28,15,33
++29, Report: Zion Williamson Weight Clause In New Contract Could Lose Guaranteed $$$ ,7/28/2022 2:58 PM,2022,7,28,14,58
++30, Beyoncé Catches R&Beef From Kelis!!! Claims Sample Was Stolen ,7/28/2022 1:41 PM,2022,7,28,13,41
++31, Mike Evans Unveils New Harry Potter Tattoo 'But I Am The Chosen One' ,7/28/2022 12:19 PM,2022,7,28,12,19
++32, Lamar Odom My Social Media's Been Highjacked ... Old Manager Costing Me $$ ,7/28/2022 12:00 PM,2022,7,28,12,0
++33, Jon Stewart Obliterates GOP for Blocking Vet Bill ... 'Sen. Toomey Is a F***ing Coward' ,7/28/2022 10:26 AM,2022,7,28,10,26
++34," Aniston, Kimmel & Bateman A-List Vacay Pals Return to L.A.!!! Back from the Bahamas ",7/28/2022 9:05 AM,2022,7,28,9,5
++35," Hong Kong Concert Video Monitor Falls, Crushing Dancers Below ",7/28/2022 9:01 AM,2022,7,28,9,1
++36, Dua Lipa Fans Light Fireworks Inside Arena ... Cops Investigating ,7/28/2022 8:45 AM,2022,7,28,8,45
++37," Johnny Depp Oui, We Love You!!! Fans Swarm in Paris ",7/28/2022 6:45 AM,2022,7,28,6,45
++38, Sesame Place $25 Million Class Action Suit Claiming Racism ,7/28/2022 6:43 AM,2022,7,28,6,43
++39," Gwenyth Paltrow Hey Hailey, I f***ed your Father!!! ... True Bathroom Humor ",7/28/2022 6:23 AM,2022,7,28,6,23
++40, Michael Savarino Coach K's Grandson ... Pleads Guilty To DWI ,7/28/2022 6:16 AM,2022,7,28,6,16
++41, Angie Everhart Accused of Egging Neighbor's Apartment Cops Called to Scene ,7/28/2022 1:00 AM,2022,7,28,1,0
++42, Tichina Arnold Divorce Finalized ... I'm Finally Single!!! ,7/28/2022 12:30 AM,2022,7,28,0,30
++43, 'Love & Marriage' Melody Shari Ex Martell Holt Hasn't Changed ... He's Still Disrespectful!!! ,7/28/2022 12:20 AM,2022,7,28,0,20
++44, Wrestling Star Hornswoggle Defends Jerry Jones' M-Word Use 'Didn't Need To Apologize' ,7/28/2022 12:10 AM,2022,7,28,0,10
++45, Kendall & Kylie's Nanny In Season 1 of 'KUWTK' 'Memba Her?! ,7/28/2022 12:01 AM,2022,7,28,0,1
++46, JayDaYoungan Shot and Killed Outside Home ,7/27/2022 8:46 PM,2022,7,27,20,46
++47, Mike Tyson Using Cane To Get Around ... But I'm OK!!! ,7/27/2022 3:56 PM,2022,7,27,15,56
++48," Britney Spears Will Not Be Deposed, Judge Rules ",7/27/2022 3:26 PM,2022,7,27,15,26
++49, Jeff Bezos Parents Buy $34M Mega Mansion in FL ,7/27/2022 3:01 PM,2022,7,27,15,1
++50, Joey Chestnut Downs 44 Cane's Chicken Fingers In Five Minutes!!! ... World Record ,7/27/2022 2:06 PM,2022,7,27,14,6
++51, Brittney Griner I Flew To Russia Despite Travel Warning ... So I Could Help My Team ,7/27/2022 1:06 PM,2022,7,27,13,6
++52, Tony Dow 'Leave It To Beaver' Star Dead At 77 ,7/27/2022 12:27 PM,2022,7,27,12,27
++53, Beyoncé ‘Renaissance’ Album Leak Beyhive Says Not So Fast!!! ,7/27/2022 12:02 PM,2022,7,27,12,2
++54, Ukrainian Prez Volodymyr Zelensky Dragged Over Vogue Cover Shoot with Wife ,7/27/2022 10:15 AM,2022,7,27,10,15
++55, GEORGE FLOYD'S DEATH Former Cops Get Prison Time ... For Violating His Civil Rights ,7/27/2022 10:14 AM,2022,7,27,10,14
++56, Kanye West Gifts A$AP Bari New Maybach… Days After He Wrecked His Old One!!! ,7/27/2022 8:18 AM,2022,7,27,8,18
++57, Norman Lear Singin' 'That's Amore' At 100 ... The Miracle of Being Alive!!! ,7/27/2022 8:14 AM,2022,7,27,8,14
++58, Jamie Foxx Wild Sing-along on Italian Vacay ... 'I'm Jamie Motherf***ing Foxx!!!' ,7/27/2022 8:02 AM,2022,7,27,8,2
++59, 'Top Chef' Star Howard Kleinberg Dead at 46 ,7/27/2022 7:39 AM,2022,7,27,7,39
++60, Shawn Mendes Cancels Tour ... For Mental Health Break ,7/27/2022 7:17 AM,2022,7,27,7,17
++61, Mama June Honey Boo Boo Too Young For Gastric Sleeve!!! ,7/27/2022 1:00 AM,2022,7,27,1,0
++62, Britney Spears Lawyer Doubles Down ... She Won't Sit for Depo or Testify at Trial,7/26/2022 4:31 PM,2022,7,26,16,31
++63, Jerry Jones Apologizes For Derogatory Term ... At Cowboys Camp ,7/26/2022 4:23 PM,2022,7,26,16,23
++64, Buzz Aldrin Apollo 11 Jacket Sells For $2.7 Mil ... Space Artifact Record!!!,7/26/2022 4:17 PM,2022,7,26,16,17
++65, Donald Trump Protesters Flood Hotel ... For 1st Speech Back in D.C. Since Jan. 6,7/26/2022 3:27 PM,2022,7,26,15,27
++66, Kevin Hart Shames Ex-NFLer Over Nudist Colony Hobby With Wife ... 'You Hear Whatchu Sayin'!?!',7/26/2022 2:27 PM,2022,7,26,14,27
++67, Jim Harbaugh I'm Willing To Raise My Players' Baby ... If Pregnancy Unplanned,7/26/2022 10:04 AM,2022,7,26,10,4
++68, 'RHONY' Star Sonja Morgan Lists NYC Townhouse ... Let's Try This Again!!!,7/26/2022 9:50 AM,2022,7,26,9,50
++69, Tony Dow 'Leave it to Beaver' Star Still Alive ... Despite Facebook Death Post,7/26/2022 8:56 AM,2022,7,26,8,56
++70, Helicopter Tragedy Man Dies Walking into Blades ... Cops Fear He Was Attempting Selfie,7/26/2022 6:58 AM,2022,7,26,6,58
++71, California Soccer Player Dies Following In-Game Brawl ... Involving Players & Fans,7/26/2022 6:53 AM,2022,7,26,6,53
++72, Lana Del Rey Gets TRO Against Alleged Stalker ... He Stole My Car!!!,7/26/2022 6:37 AM,2022,7,26,6,37
++73, Taco Bell Employee Allegedly Throws Boiling Hot Water at Customers,7/26/2022 6:27 AM,2022,7,26,6,27
++74, Brittney Griner Sends Message To Wife In Court ... 'Good Luck On The Bar Exam',7/26/2022 6:13 AM,2022,7,26,6,13
++75, PetSmart Sued Your Groomers Killed My Dog!!!,7/26/2022 1:00 AM,2022,7,26,1,0
++76, 'RHOA' STAR SHEREE WHITFIELD Dating Martell Holt ... From 'Love & Marriage Huntsville',7/26/2022 12:50 AM,2022,7,26,0,50
++77, 'SHAHS OF SUNSET' Mike CHARGED WITH DOMESTIC VIOLENCE,7/26/2022 12:40 AM,2022,7,26,0,40

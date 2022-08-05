@@ -3,7 +3,10 @@ import sys
 import logging
 import random
 from collections import defaultdict
-from count_syllables import count_syllables
+from poetry_factory import syllable_counter
+
+
+sys.path.insert(0, "haikuifier/poetry_factory/")
 
 logging.disable(logging.CRITICAL)  # comment-out to enable debugging messages
 logging.basicConfig(level=logging.DEBUG, format="%(message)s")
@@ -86,7 +89,7 @@ def random_word(corpus):
     """
 
     word = random.choice(corpus)
-    num_syls = count_syllables(word)
+    num_syls = syllable_counter.count_syl(word)
     if num_syls > 4:
         random_word(corpus)
     else:
@@ -111,7 +114,7 @@ def word_after_single(prefix, suffix_map_1, current_syls, target_syls):
     suffixes = suffix_map_1.get(prefix)
     if suffixes != None:
         for candidate in suffixes:
-            num_syls = count_syllables(candidate)
+            num_syls = syllable_counter.count_syl(candidate)
             if current_syls + num_syls <= target_syls:
                 accepted_words.append(candidate)
     logging.debug('accepted words after "%s" = %s\n', prefix, set(accepted_words))
@@ -135,7 +138,7 @@ def word_after_double(prefix, suffix_map_2, current_syls, target_syls):
     suffixes = suffix_map_2.get(prefix)
     if suffixes != None:
         for candidate in suffixes:
-            num_syls = count_syllables(candidate)
+            num_syls = syllable_counter.count_syl(candidate)
             if current_syls + num_syls <= target_syls:
                 accepted_words.append(candidate)
     logging.debug('accepted words after "%s" = %s\n', prefix, set(accepted_words))
@@ -173,7 +176,7 @@ def haiku_line(suffix_map_1, suffix_map_2, corpus, end_prev_line, target_syls):
                 prefix, suffix_map_1, line_syls, target_syls
             )
         word = random.choice(word_choices)
-        num_syls = count_syllables(word)
+        num_syls = syllable_counter.count_syl(word)
         logging.debug("word & syllables = %s %s", word, num_syls)
         line_syls += num_syls
         current_line.append(word)
@@ -196,7 +199,7 @@ def haiku_line(suffix_map_1, suffix_map_2, corpus, end_prev_line, target_syls):
                 prefix, suffix_map_2, line_syls, target_syls
             )
         word = random.choice(word_choices)
-        num_syls = count_syllables(word)
+        num_syls = syllable_counter.count_syl(word)
         logging.debug("word & syllables = %s %s", word, num_syls)
 
         if line_syls + num_syls > target_syls:

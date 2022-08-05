@@ -4,6 +4,9 @@ from string import punctuation
 from cachetools import cached
 from nltk.corpus import cmudict
 
+def cmudict(dict):
+
+
 
 class bcolors:
     HEADER = "\033[95m"
@@ -26,14 +29,14 @@ def whats_new():
     cmu = get_cmu()
 
     try:
-        with open("../data/missing_words.json", "r") as f:
+        with open("missing_words.json", "r") as f:
             current_exceptions = json.load(f)
     except Exception:
         with open("../data/missing_words.json", "r") as f:
             current_exceptions = json.load(f)
     current = list(current_exceptions.keys())
     try:
-        with open("../headlines.json", "r") as f:
+        with open("headlines.json", "r") as f:
             headlines = json.load(f)
     except Exception:
         with open("../notebooks/headlines.json", "r") as f:
@@ -41,7 +44,7 @@ def whats_new():
     headlines = list(headlines["headline"])
 
     def dump_current(missing_words):
-        with open("../data/missing_words.json", "w") as f:
+        with open("missing_words.json", "w") as f:
             missing_words = json.dump(missing_words, f)
             missing = re.sub("[^0-9a-zA-Z]+", "", str(missing_words))
         return missing
@@ -55,7 +58,7 @@ def whats_new():
     # keys = list(test.keys())
     # keys = list(keys)
     gold = test + cmu
-    lesson = load_text_file("../data/haiku_corpus.txt")
+    lesson = load_text_file("haiku_corpus.txt")
     new = [word for word in lesson if word not in gold]
     return new
 
@@ -66,12 +69,18 @@ def get_cmu():
 
 
 def get_haiku_corpus():
-    with open("../data/haiku_corpus.json", "r") as f:
+    with open("data/haiku_corpus.json", "r") as f:
         return json.load(f)
+
+def dump_haiku(haiku_corpus):
+    with open("../data/haiku_corpus.json", "w") as f:
+        haiku_json = json.dump(haiku_corpus, f)
+        haiku_json = re.sub("[^0-9a-zA-Z]+", "", str(haiku_json))
+    return json.load(f)
 
 
 def get_headlines():
-    with open("../headlines.json", "r") as f:
+    with open("headlines.json", "r") as f:
         return json.load(f)
 
 
@@ -101,7 +110,7 @@ def get_current_exceptions():
     :return: A dictionary of words that are missing from the dictionary.
     """
 
-    with open("../data/missing_words.json", "r") as f:
+    with open("missing_words.json", "r") as f:
         return json.load(f)
 
 
