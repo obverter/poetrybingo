@@ -1,9 +1,7 @@
 import os, sys
 
-sys.path.insert(0, "haikuifier/poetry_factory/")
-
 #####imports####################################################################
-from poetry_factory import big_dict, loaders, syllable_counter
+import big_dict, loaders, syllable_counter
 
 
 

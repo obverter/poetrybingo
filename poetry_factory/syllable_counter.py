@@ -4,20 +4,14 @@ from string import punctuation
 import json
 import re
 import sys
-
-sys.path.insert(0, "haikuifier/poetry_factory/")
-
-# load dictionary of words in haiku corpus but not in cmudict
-with open('../data/missing_words.json') as f:
-    missing_words = json.load(f)
-
-cmudict = cmudict.dict()
+import loaders
 
 
+corpus = loaders.load_haiku()
 
-def cmu_missing(word_set):
+def delta():
     exceptions = set()
-    for word in word_set:
+    for word in corpus:
         word = word.lower().strip(punctuation)
         if word.endswith("'s") or word.endswith("’s"):
             word = word[:-2]
@@ -25,18 +19,21 @@ def cmu_missing(word_set):
             exceptions.add(word)
         print("n\exceptions:")
         print(*exceptions, sep='\n')
-        print(f"Unique words in haiku corpus: {len(word_set)}")
+        print(f"Words in haiku corpus: {len(corpus)}")
         print(f"Corpus words not in CMU dictionary: {len(exceptions)}")
-        included = (1-(len(exceptions)/len(word_set)))*100
+        included = ((len(exceptions)/len(corpus)))*100
         print(f"Percentage of words in corpus that are in CMU dictionary: {included}%")
         return exceptions
 
-def dump_current(missing_words):
+missing_words = delta(corpus)
+
+def dump_current():
     with open("missing_words.json", "w") as f:
         missing_words = json.dump(missing_words, f)
         missing = re.sub("[^0-9a-zA-Z]+", "", str(missing_words))
     return missing
 
+missing = dump_current()
 
 def count_syl(words):
     """Use corpora to count syllables in English word or phrase."""
@@ -48,8 +45,8 @@ def count_syl(words):
         word = word.strip(punctuation)
         if word.endswith("'s")or word.endswith("’s"):
             word = word[:-2]
-        if word in missing_words:
-            num_sylls += missing_words[word]
+        if word in missing:
+            num_sylls += missing[word]
         else:
             for phonemes in cmudict[word][0]:
                 for phoneme in phonemes:
@@ -71,5 +68,5 @@ def main():
         except KeyError:
             print("\nI have no idea what that is. Try feeding me something else.\n", file=sys.stderr)
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()

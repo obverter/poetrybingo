@@ -1,10 +1,10 @@
 import os, sys
+import json
 
-sys.path.insert(0, "haikuifier/poetry_factory")
 
 ##### script imports ###########################################################
 from nltk.corpus import cmudict
-from poetry_factory import syllable_counter
+import syllable_counter
 
 
 ##### assets ###################################################################
@@ -41,5 +41,19 @@ def load_haiku():
     It opens the file "haiku_corpus.txt" and returns the file object
     :return: A file object
     """
-    with open("../data/haiku_corpus.txt", "r") as f:
-        return f.read()
+    try:
+        with open('../data/haiku_corpus.txt', 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+
+        with open("../../data/haiku_corpus.txt", "r") as f:
+            return f.read()
+
+def load_missing():
+    try:
+        with open('../data/missing_words.json') as f:
+            missing_words = json.load(f)
+    except Exception:
+        with open('../../data/missing_words.json') as f:
+            missing_words = json.load(f)
+    return missing_words

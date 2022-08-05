@@ -1,21 +1,28 @@
 import os, sys
 
-sys.path.insert(0, "haikuifier/poetry_factory")
 
 #####imports####################################################################
-from poetry_factory import big_dict, loaders, syllable_counter
+import loaders, syllable_counter, config
+from config import relpath as relpath
 
 
 #####assets#####################################################################
 cmudict = loaders.load_cmu()
 
+corpus = loaders.load_haiku()
+
 #####functions##################################################################
 
 
 #####main#######################################################################
-
-with open('haiku_corpus.txt.') as in_file:
-    words = set(in_file.read().split())
+try:
+    with open('../data/haiku_corpus.txt') as in_file:
+        words = set(in_file.read().split())
+except FileNotFoundError:
+    with open('../../data/haiku_corpus.txt') as in_file:
+        words = set(in_file.read().split())
+finally:
+    print(f"Working off of {relpath(__file__)}")
 
 missing = []
 
@@ -27,9 +34,3 @@ for word in words:
         missing.append(word)
 
 print("Missing words:", missing, file=sys.stderr)
-
-
-
-
-if __name__ == "__main__":
-    main()

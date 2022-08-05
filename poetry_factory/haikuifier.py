@@ -3,10 +3,8 @@ import sys
 import logging
 import random
 from collections import defaultdict
-from poetry_factory import syllable_counter
+import syllable_counter
 
-
-sys.path.insert(0, "haikuifier/poetry_factory/")
 
 logging.disable(logging.CRITICAL)  # comment-out to enable debugging messages
 logging.basicConfig(level=logging.DEBUG, format="%(message)s")
