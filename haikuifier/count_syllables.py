@@ -8,7 +8,7 @@ sys.path.insert(0, "data")
 sys.path.insert(1, "haikuifier")
 
 # load dictionary of words in haiku corpus but not in cmudict
-with open('data/missing_words.json') as f:
+with open('haikuifier/missing_words.json') as f:
     missing_words = json.load(f)
 
 cmudict = cmudict.dict()
