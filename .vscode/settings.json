@@ -1,6 +1,16 @@
 {
     "cSpell.words": [
+        "bcolors",
+        "cmudict",
+        "ENDC",
+        "haikuifier",
+        "Haikuifier",
+        "nltk",
+        "OKBLUE",
+        "OKCYAN",
+        "OKGREEN",
         "sidetable",
+        "sylls",
         "tqdm"
     ]
 }
