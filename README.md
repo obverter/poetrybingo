@@ -26,7 +26,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/obverter/tmz-poetry">
-    <img src="images/tmz-poetry.png">
+    <img src="images/willie.png">
   </a>
 
 <h3 align="center">TMZ Poetry</h3>
@@ -95,9 +95,9 @@ And so I built this thing, which:
 
 1. Automatically scrapes TMZ's main blogroll every five minutes. ✅
 2. Appends new headlines to a monster, forever-updating csv. (`headlines.csv` descending by timestamp) ✅
-3. Uses those headlines to train a handwritten grammar in spaCy. 🔨
-4. Generates poetry from the headline corpus. 🔨
-5. Overlays said poetry onto images scraped from Wikimedia Commons 🔨
+3. <s>Uses those headlines to train a handwritten grammar in spaCy. 🔨</s>
+4. Throws those headlines into a blender that runs on a combination of a 2nd-order Markov chain, 1-grams, and methamphetamines in order to generate poetry.
+5. <s>Overlays said poetry onto images scraped from Wikimedia Commons 🔨</s>
 
 You're welcome.
 
@@ -152,6 +152,8 @@ First, you'll need to clone the repo. Follow these instructions carefully.
 <!-- USAGE EXAMPLES -->
 
 ## Usage
+
+`$ python poetry.py`
 
 Apply directly to the forehead.
 
@@ -219,8 +221,8 @@ Project Link: [https://github.com/obverter/tmz-poetry](https://github.com/obvert
 - [Lunchables](https://lunchables.com)
 - [Allison Parrish](https://github.com/aparrish)
 - [Jonathan Soma](https://github.com/jsoma)
-- <a target="_blank" href="https://icons8.com/icon/109470/trash">Trash</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-- <a target="_blank" href="https://icons8.com/icon/gKCLeOcRmojF/treasure-chest">Treasure Chest</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+- [Lee Vaughn](https://github.com/LeeVaughn)'s <ul>Impractical Python Projects</ul> (Particularly Chs. 8 & 9), which were invaluable as I got this ball of sunshine started.
+
 <!-- * []()
 - []() -->
 

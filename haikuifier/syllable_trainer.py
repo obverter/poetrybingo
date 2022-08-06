@@ -5,6 +5,7 @@ import pprint
 import json
 import pandas as pd
 from nltk.corpus import cmudict
+import count_syllables
 
 sys.path.insert(0, "data")
 sys.path.insert(1, "haikuifier")
@@ -49,13 +50,13 @@ def txt_dump(heads):
 
 txt_dump(heads)
 
-with open('../data/missing_words.json') as f:
+with open('missing_words.json') as f:
     current_exceptions_dict = json.load(f)
 
 
 
 def main():
-    haiku = load_haiku('../data/lesson.txt')
+    haiku = load_haiku('lesson.txt')
     exceptions = cmudict_missing(haiku)
     build_dict = input("\nManually build an exceptions dictionary (y/n)? \n")
     if build_dict.lower() == 'n':
@@ -90,7 +91,7 @@ def cmudict_missing(word_set):
     print(f"Number of words in current exceptions dictionary = {bcolors.OKCYAN}{len(current_exceptions_dict)}{bcolors.ENDC}")
     membership = (1 - len(exceptions) / len(word_set)) * 100
     coverage = (len(current_exceptions_dict) / len(exceptions)) * 100
-    missing = (len(current_exceptions_dict) - len(exceptions))
+    missing = abs(len(current_exceptions_dict) - len(exceptions))
     print("Corpus cmudict membership = {:.1f}{}".format(membership, '%'))
     print("Exceptions dict coverage = {:.1f}{}".format(coverage, '%'))
     print(f"Corpus words missing from both cmudict and exceptions = {bcolors.FAIL}{missing}{bcolors.ENDC}.")
@@ -103,7 +104,6 @@ def cmudict_missing(word_set):
     print(f"{bcolors.UNDERLINE}                      {bcolors.ENDC}")
 
     return exceptions
-
 
 
 def make_exceptions_dict(exceptions_set):
@@ -146,10 +146,10 @@ def make_exceptions_dict(exceptions_set):
 def save_exceptions(missing_words):
     """Save exceptions dictionary as json file."""
     json_string = json.dumps(missing_words)
-    with open('../data/missing_words.json', 'w') as f:
+    with open('missing_words.json', 'w') as f:
         new_string = f.append(json_string)
         f.write(new_string)
-    print("\nFile saved as ../data/missing_words.json")
+    print("\nFile saved as missing_words.json")
 
 
 
