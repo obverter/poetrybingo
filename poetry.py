@@ -3,11 +3,13 @@ import sys
 import logging
 import random
 from collections import defaultdict
-from count_syllables import count_syllables
+from haikuifier.count_syllables import count_syllables
 
 logging.disable(logging.CRITICAL)  # comment-out to enable debugging messages
 logging.basicConfig(level=logging.DEBUG, format="%(message)s")
 
+sys.path.insert(0, "data")
+sys.path.insert(1, "haikuifier")
 
 def load_training_file(file):
     """Return a text file as a string."""
@@ -42,7 +44,7 @@ def map_2_words_to_word(corpus):
             suffix = corpus[index + 2]
             dict2_to_1[key].append(suffix)
     logging.debug(
-        'map_2_words_to_word results for "sake jug" = %s\n', dict2_to_1["sake jug"]
+        'map_2_words_to_word results for "sake" = %s\n', dict2_to_1["sake jug"]
     )
 
     return dict2_to_1
@@ -153,7 +155,7 @@ def main():
                     ...can sometimes produce a haiku.\n"""
 
     print(f"{intro}")
-    raw_haiku = load_training_file("lesson.txt")
+    raw_haiku = load_training_file("data/lesson.txt")
     corpus = prep_training(raw_haiku)
     suffix_map_1 = map_word_to_word(corpus)
     suffix_map_2 = map_2_words_to_word(corpus)

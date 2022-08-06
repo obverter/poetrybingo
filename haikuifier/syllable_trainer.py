@@ -1,11 +1,13 @@
 """Find words in haiku corpus missing from cmudict & build exceptions dict."""
-import sys
+import sys, os
 from string import punctuation
 import pprint
 import json
 import pandas as pd
 from nltk.corpus import cmudict
 
+sys.path.insert(0, "data")
+sys.path.insert(1, "haikuifier")
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -47,13 +49,13 @@ def txt_dump(heads):
 
 txt_dump(heads)
 
-with open('missing_words.json') as f:
+with open('../data/missing_words.json') as f:
     current_exceptions_dict = json.load(f)
 
 
 
 def main():
-    haiku = load_haiku('lesson.txt')
+    haiku = load_haiku('../data/lesson.txt')
     exceptions = cmudict_missing(haiku)
     build_dict = input("\nManually build an exceptions dictionary (y/n)? \n")
     if build_dict.lower() == 'n':
@@ -144,10 +146,10 @@ def make_exceptions_dict(exceptions_set):
 def save_exceptions(missing_words):
     """Save exceptions dictionary as json file."""
     json_string = json.dumps(missing_words)
-    with open('missing_words.json', 'w') as f:
+    with open('../data/missing_words.json', 'w') as f:
         new_string = f.append(json_string)
         f.write(new_string)
-    print("\nFile saved as missing_words.json")
+    print("\nFile saved as ../data/missing_words.json")
 
 
 
