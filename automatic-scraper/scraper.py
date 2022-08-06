@@ -11,7 +11,7 @@ import json
 
 url = "https://www.tmz.com"
 req = requests.get(url)
-doc = BeautifulSoup(req.text)
+doc = BeautifulSoup(req.text, "html.parser")
 
 
 raw_titles = doc.select("header > a > h2")
@@ -21,8 +21,8 @@ raw_titles = doc.select("header > a > h2")
 # the headlines to the headlines list.
 headlines = []
 valid_punct = ["'", "!", "?"]
+print("\n* * * * * * * * * * Here's the latest news:* * * * * * * * * *\n")
 for count, title in enumerate(enumerate(raw_titles)):
-    print("- - -")
     headline = raw_titles[count].get_text().strip().replace("\n", " ") + "."
     if headline[-2] in valid_punct:
         headline = headline[:-1]
