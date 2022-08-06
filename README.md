@@ -138,13 +138,9 @@ First, you'll need to clone the repo. Follow these instructions carefully.
    ```sh
    $ git clone https://github.com/obverter/tmz-poetry.git
    ```
-3. Ensure that your machine and this repo are codependent.
+3. Fasten your seatbelt.
    ```sh
-   $ pip install -r requirements.txt
-   ```
-4. Split the atom.
-   ```sh
-   $ jupyter notebook
+   $ python poetry.py
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -221,7 +217,7 @@ Project Link: [https://github.com/obverter/tmz-poetry](https://github.com/obvert
 - [Lunchables](https://lunchables.com)
 - [Allison Parrish](https://github.com/aparrish)
 - [Jonathan Soma](https://github.com/jsoma)
-- [Lee Vaughn](https://github.com/LeeVaughn)'s <ul>Impractical Python Projects</ul> (Particularly Chs. 8 & 9), which were invaluable as I got this ball of sunshine started.
+- [Lee Vaughn](https://github.com/LeeVaughn)'s `Impractical Python Projects` (Particularly Chs. 8 & 9), which were invaluable as I got this ball of sunshine started.
 
 <!-- * []()
 - []() -->
