@@ -1,16 +1,16 @@
-import os, sys
+
 import json
 
 
 ##### script imports ###########################################################
 from nltk.corpus import cmudict
-import syllable_counter
+
 
 
 ##### assets ###################################################################
 
 # Loading the cmudict file into a dictionary.
-cmudict = cmudict.dict()
+# cmudict = cmudict.dict()
 
 
 #####functions##################################################################
@@ -28,15 +28,16 @@ class bcolors:
     UNDERLINE = "\033[4m"
 
 
+
 def load_cmu():
     """
     Loads the CMU dictionary into a Python dictionary
     :return: A dictionary of words and their pronunciations.
     """
-    return cmudict
+    return cmudict.dict()
 
 
-def load_haiku():
+def load_corpus():
     """
     It opens the file "haiku_corpus.txt" and returns the file object
     :return: A file object
@@ -45,8 +46,7 @@ def load_haiku():
         with open('../data/haiku_corpus.txt', 'r') as f:
             return f.read()
     except FileNotFoundError:
-
-        with open("../../data/haiku_corpus.txt", "r") as f:
+        with open("data/haiku_corpus.txt", "r") as f:
             return f.read()
 
 def load_missing():
@@ -54,6 +54,14 @@ def load_missing():
         with open('../data/missing_words.json') as f:
             missing_words = json.load(f)
     except Exception:
-        with open('../../data/missing_words.json') as f:
+        with open('data/missing_words.json') as f:
             missing_words = json.load(f)
     return missing_words
+
+def main():
+    load_cmu()
+    load_corpus()
+    load_missing()
+
+if __name__ == "__main__":
+    main()
