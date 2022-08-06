@@ -9,6 +9,7 @@
         "OKBLUE",
         "OKCYAN",
         "OKGREEN",
+        "punct",
         "sidetable",
         "sylls",
         "tqdm"

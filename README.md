@@ -149,8 +149,6 @@ First, you'll need to clone the repo. Follow these instructions carefully.
 
 ## Usage
 
-`$ python poetry.py`
-
 Apply directly to the forehead.
 
 <!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. -->
