@@ -1,4 +1,5 @@
 import os, sys
+from re import X
 
 
 #####imports####################################################################
@@ -14,17 +15,20 @@ corpus = load_corpus()
 
 #####functions##################################################################
 
-
+X
 #####main#######################################################################
+
+
 def update():
     try:
         with open('../data/haiku_corpus.txt') as in_file:
+            corpus_path = in_file
             words = set(in_file.read().split())
     except FileNotFoundError:
         with open('../../data/haiku_corpus.txt') as in_file:
+            corpus_path = in_file
             words = set(in_file.read().split())
-    finally:
-        print(f"Working off of {config.relpath(__file__)}")
+
 
     missing = []
 
@@ -39,6 +43,10 @@ def update():
 
     build_dict(missing)
 
-    save_dict()
+    save_dict(missing)
 
     return
+
+if __name__ == "__main__":
+    update()
+    sys.exit()

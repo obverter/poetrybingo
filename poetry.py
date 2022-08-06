@@ -10,7 +10,6 @@ from poetry_factory import (
     loaders,
     syllable_counter as sylcount,
     trainer,
-    haikuifier as haiku,
     updater,
 )
 
@@ -76,8 +75,16 @@ def delta(corpus):
             missing.append(word)
 
 
-
-
-
-
 #### main ######################################################################
+
+def main():
+    updater.update()
+
+
+
+
+
+
+#### runner ####################################################################
+if __name__ == "__main__":
+    main()

@@ -48,7 +48,7 @@ def make_exceptions_dict(exceptions_set):
                 print("                   Not a valid answer!", file=sys.stderr)
         missing_words[word] = int(num_sylls)
     print()
-    pprint.pprint(missing_words, width=1)
+    print(missing_words)
     print("\nMake Changes to Dictionary Before Saving?")
     print(
         """
@@ -69,7 +69,7 @@ def make_exceptions_dict(exceptions_set):
             word = input("\nEnter word to delete: ")
             missing_words.pop(word, None)
     print("\nNew words or syllable changes:")
-    pprint.pprint(missing_words, width=1)
+    print(missing_words)
     return missing_words
 
 def update_exceptions_dict(exceptions_set):
@@ -92,7 +92,7 @@ def update_exceptions_dict(exceptions_set):
                 print("                   Not a valid answer!", file=sys.stderr)
         missing_words[f"{len(current_exceptions)} + {count}"] = int(num_sylls)
     print()
-    pprint.pprint(missing_words, width=1)
+    print(missing_words)
     print("\nMake Changes to Dictionary Before Saving?")
     print("""
     0 - Exit & Save
@@ -111,7 +111,7 @@ def update_exceptions_dict(exceptions_set):
             word = input("\nEnter word to delete: ")
             missing_words.pop(word, None)
     print("\nNew words or syllable changes:")
-    pprint.pprint(missing_words, width=1)
+    print(missing_words)
     return missing_words
 
 

@@ -22,6 +22,7 @@ def main():
     else:
         update = input("\nUPDATE the current dictionary or start from SCRATCH (U)pdate | (S)cratch | (E)xit)\n    >  ")
         if update.lower() == "u":
+
             missing_words_dict = updater.update()
         elif update.lower() == "s":
             print("\n")

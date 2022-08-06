@@ -90,17 +90,27 @@ def build_dict(exceptions_set):
           ''')
     print("\nSo how many syllables are in these words?\nYou can fix mistakes later if/when you make any. \n")
 
+    count = 1
     for word in exceptions_set:
+        additions = []
         while True:
+            print()
+            print(f"This is word {count} of {len(exceptions_set)}.\nYou're {round(count/(len(exceptions_set)) * 100)}% done.\nKeep going. Or enter Q to save and quit.")
             num_syllables = input(f"How many syllables are in {word.upper()}: ")
             if num_syllables.isdigit():
+                additions.append(num_syllables)
+                count += 1
                 break
+            elif num_syllables.lower() == "q":
+                save_dict(additions)
+                print("\nGood work. You're done.")
+                sys.exit()
             else:
-                print("FEED ME NUMBERS, FEED ME NUMBERS, FEED ME NUMBERS.\nPlease enter an integer. An integer is a number with no decimal points.\n", file=sys.stderr)
+                print("FEED ME NUMBERS, FEED ME NUMBERS, FEED ME NUMBERS.\nPlease enter an integer. An integer is a number with no decimal points.\n Or enter Q to save and quit.", file=sys.stderr)
 
         missing[word] = int(num_syllables)
     print()
-    print(missing, width=1)
+    print(missing)
     print("\nWanna make any changes to your dictionary before saving?")
     print("""
     0: Save and exit
@@ -131,7 +141,7 @@ def save_dict(missing):
     except Exception:
         with open("../data/addenda.json", "w") as f:
             f.write(new_additions)
-    print("\nYour dictionary has been saved @ data/addenda.json\n")
+    print("\nYour dictionary has been saved @ ../data/addenda.json\n")
     return new_additions
 
 def merge_new(new_additions):
