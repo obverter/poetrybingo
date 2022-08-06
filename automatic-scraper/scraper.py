@@ -106,8 +106,7 @@ current = pd.DataFrame(dicts)
 
 
 # This is reading the headlines.csv file and converting it to a dataframe.
-existing = pd.read_csv("headlines.csv")
-existing = existing.dropna(axis=1).set_index("Unnamed: 0")
+existing = pd.read_csv("headlines.csv", index_col='Unnamed: 0')
 if "tags" not in existing:
     existing["tags"] = None
 existing
