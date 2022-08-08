@@ -1,1 +1,0 @@
-FLASK_APP=poetry_factory.py
