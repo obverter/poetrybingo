@@ -7,6 +7,11 @@ import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
 import json
+import sys
+
+sys.path.insert(0, "poetrybingo")
+sys.path.insert(1, "poetrybingo/data")
+sys.path.insert(2, "poetrybingo/utilities")
 
 
 url = "https://www.tmz.com"
@@ -21,7 +26,17 @@ raw_titles = doc.select("header > a > h2")
 # the headlines to the headlines list.
 headlines = []
 valid_punct = ["'", "!", "?"]
-print("\n* * * * * * * * * * Here's the latest news:* * * * * * * * * *\n")
+print("""
+
+██████╗ ██████╗ ███████╗ █████╗ ██╗  ██╗██╗███╗   ██╗ ██████╗
+██╔══██╗██╔══██╗██╔════╝██╔══██╗██║ ██╔╝██║████╗  ██║██╔════╝ ██╗
+██████╔╝██████╔╝█████╗  ███████║█████╔╝ ██║██╔██╗ ██║██║  ███╗╚═╝
+██╔══██╗██╔══██╗██╔══╝  ██╔══██║██╔═██╗ ██║██║╚██╗██║██║   ██║██╗
+██████╔╝██║  ██║███████╗██║  ██║██║  ██╗██║██║ ╚████║╚██████╔╝╚═╝
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝
+
+
+      """)
 for count, title in enumerate(enumerate(raw_titles)):
     headline = raw_titles[count].get_text().strip().replace("\n", " ") + "."
     if headline[-2] in valid_punct:
@@ -142,5 +157,5 @@ export = export.drop_duplicates(subset=["timestamp"], keep="first", ignore_index
 
 
 # Writing the dataframe to a csv file.
-export.to_csv("headlines.csv")
-export.to_json("headlines.json")
+export.to_csv("poetrybingo/data/headlines.csv")
+export.to_json("poetrybingo/data/headlines.json")
