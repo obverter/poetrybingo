@@ -8,21 +8,18 @@ import sys, os
 
 sys.path.insert(0, "poetrybingo/data")
 sys.path.insert(1, "tmz-poetry/poetrybingo")
+sys.path.insert(3, "poetrybingo/data/corpus.txt")
 
 
 def get_headlines():
     return pathlib.Path("poetrybingo/data/headlines.csv").read_text()
 
 
-def load_corpus(variable):
-    fle = Path("poetrybingo/data/corpus.txt")
-    fle.touch(exist_ok=True)
-    with open("poetrybingo/data/corpus.txt", "a+") as f:
-        variable = f.read()
-        return variable
+def load_corpus():
+    with open("../data/corpus.txt", "r+") as f:
+        return f.read()
 
 
-prev_corpus = load_corpus("corpus")
 
 
 def txt_dump():

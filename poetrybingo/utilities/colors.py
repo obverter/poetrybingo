@@ -14,25 +14,28 @@ class bcolors:
     UNDERLINE = "\033[4m"
 
 def HEADER(string):
-    return f"{bcolors.HEADER}{string}" + "{bcolors.ENDC}"
+    return f"{bcolors.HEADER}{string}"
 
 def BLUE(string):
-    return f"{bcolors.OKBLUE}{string}" + "{bcolors.ENDC}"
+    return f"{bcolors.OKBLUE}{string}"
 
 def CYAN(string):
-    return f"{bcolors.OKCYAN}{string}" + "{bcolors.ENDC}"
+    return f"{bcolors.OKCYAN}{string}"
 
 def GREEN(string):
-    return f"{bcolors.OKGREEN}{string}" + "{bcolors.ENDC}"
+    return f"{bcolors.OKGREEN}{string}"
 
 def WARNING(string):
-    return f"{bcolors.WARNING}{string}" + "{bcolors.ENDC}"
+    return f"{bcolors.WARNING}{string}"
 
 def FAIL(string):
-    return f"{bcolors.FAIL}{string}" + "{bcolors.ENDC}"
+    return f"{bcolors.FAIL}{string}"
 
 def BOLD(string):
-    return f"{bcolors.BOLD}{string}" + "{bcolors.ENDC}"
+    return f"{bcolors.BOLD}{string}"
 
 def UNDERLINE(string):
-    return f"{bcolors.UNDERLINE}{string}" + "{bcolors.ENDC}"
+    return f"{bcolors.UNDERLINE}{string}"
+
+def ENDC():
+    return f"{bcolors.ENDC}"

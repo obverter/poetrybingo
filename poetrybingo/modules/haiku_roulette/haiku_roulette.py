@@ -1,15 +1,20 @@
 """Produce new haiku from training corpus of existing haiku."""
+import os.path
 import sys
+sys.path.insert(0, "poetrybingo")
+sys.path.insert(1, "poetrybingo/data")
+sys.path.insert(2, "poetrybingo/utilities")
+sys.path.append('utilities')
+
 import logging
 import random
 from collections import defaultdict
-from utilities import corpus, dictionary, syllables, colors
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from poetrybingo import corpus, dictionary, syllables, colors
 
 logging.disable(logging.CRITICAL)  # comment-out to enable debugging messages
 logging.basicConfig(level=logging.DEBUG, format="%(message)s")
 
-sys.path.insert(0, "poetrybingo/data")
-sys.path.insert(1, "poetrybingo/utilities")
 
 def load_training_file(file):
     """Return a text file as a string."""
@@ -51,7 +56,7 @@ def map_2_words_to_word(corpus):
 def random_word(corpus):
     """Return random word and syllable count from training corpus."""
     word = random.choice(corpus)
-    num_syls = count_syllables(word)
+    num_syls = syllables.count_syllables(word)
     if num_syls > 4:
         random_word(corpus)
     else:
@@ -65,7 +70,7 @@ def word_after_single(prefix, suffix_map_1, current_syls, target_syls):
     suffixes = suffix_map_1.get(prefix)
     if suffixes != None:
         for candidate in suffixes:
-            num_syls = count_syllables(candidate)
+            num_syls = syllables.count_syllables(candidate)
             if current_syls + num_syls <= target_syls:
                 accepted_words.append(candidate)
     logging.debug('accepted words after "%s" = %s\n', prefix, set(accepted_words))
@@ -78,7 +83,7 @@ def word_after_double(prefix, suffix_map_2, current_syls, target_syls):
     suffixes = suffix_map_2.get(prefix)
     if suffixes != None:
         for candidate in suffixes:
-            num_syls = count_syllables(candidate)
+            num_syls = syllables.count_syllables(candidate)
             if current_syls + num_syls <= target_syls:
                 accepted_words.append(candidate)
     logging.debug('accepted words after "%s" = %s\n', prefix, set(accepted_words))
@@ -103,7 +108,7 @@ def haiku_line(suffix_map_1, suffix_map_2, corpus, end_prev_line, target_syls):
                 prefix, suffix_map_1, line_syls, target_syls
             )
         word = random.choice(word_choices)
-        num_syls = count_syllables(word)
+        num_syls = syllables.count_syllables(word)
         logging.debug("word & syllables = %s %s", word, num_syls)
         line_syls += num_syls
         current_line.append(word)
@@ -126,7 +131,7 @@ def haiku_line(suffix_map_1, suffix_map_2, corpus, end_prev_line, target_syls):
                 prefix, suffix_map_2, line_syls, target_syls
             )
         word = random.choice(word_choices)
-        num_syls = count_syllables(word)
+        num_syls = syllables.count_syllables(word)
         logging.debug("word & syllables = %s %s", word, num_syls)
 
         if line_syls + num_syls > target_syls:
@@ -153,7 +158,7 @@ def main():
                     ...can sometimes produce a haiku.\n"""
 
     print(f"{intro}")
-    raw_haiku = load_training_file("data/lesson.txt")
+    raw_haiku = load_training_file("data/corpus.txt")
     corpus = prep_training(raw_haiku)
     suffix_map_1 = map_word_to_word(corpus)
     suffix_map_2 = map_2_words_to_word(corpus)
