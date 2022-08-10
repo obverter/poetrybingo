@@ -1,6 +1,8 @@
 import sys, os
 
-sys.path.insert(0, "poetrybingo/data")
+sys.path.append(os.path.join(sys.path[0],'poetrybingo','utilities'))
+sys.path.append(os.path.join(sys.path[0],'poetrybingo','data'))
+sys.path.append(os.path.join(sys.path[0],'poetrybingo','modules'))
 
 class bcolors:
     HEADER = "\033[95m"

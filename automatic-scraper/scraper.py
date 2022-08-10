@@ -7,12 +7,15 @@ import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
 import json
-import sys
+import sys, os
 
-sys.path.insert(0, "poetrybingo")
-sys.path.insert(1, "poetrybingo/data")
-sys.path.insert(2, "poetrybingo/utilities")
+# sys.path.insert(0, "poetrybingo")
+# sys.path.insert(1, "poetrybingo/data")
+# sys.path.insert(2, "poetrybingo/utilities")
 
+sys.path.append(os.path.join(sys.path[0],'utilities'))
+sys.path.append(os.path.join(sys.path[0],'poetrybingo','data'))
+sys.path.append(os.path.join(sys.path[0],'modules'))
 
 url = "https://www.tmz.com"
 req = requests.get(url)
@@ -134,7 +137,7 @@ current = pd.DataFrame(dicts)
 
 
 # This is reading the headlines.csv file and converting it to a dataframe.
-existing = pd.read_csv("headlines.csv", index_col="Unnamed: 0")
+existing = pd.read_csv("../data/headlines.csv", index_col="Unnamed: 0")
 if "tags" not in existing:
     existing["tags"] = None
 
@@ -157,5 +160,5 @@ export = export.drop_duplicates(subset=["timestamp"], keep="first", ignore_index
 
 
 # Writing the dataframe to a csv file.
-export.to_csv("poetrybingo/data/headlines.csv")
-export.to_json("poetrybingo/data/headlines.json")
+export.to_csv("../data/headlines.csv")
+export.to_json("../data/headlines.json")

@@ -1,21 +1,46 @@
 """American English syllable counter using NLTK cmudict corpus."""
 
-import sys
+import sys, os
 from string import punctuation
 import json
 import colors, corpus
 import pprint
 from corpus import load_corpus
+import contextlib
+from time import sleep
 
 from nltk.corpus import cmudict
 
-sys.path.insert(0, "tmz-poetry/poetrybingo")
-sys.path.insert(1, "poetrybingo/data")
-sys.path.insert(3, "poetrybingo/data/corpus.txt")
+sys.path.append(os.path.join(sys.path[0], "poetrybingo", "utilities"))
+sys.path.append(os.path.join(sys.path[0], "poetrybingo", "data"))
+sys.path.append(os.path.join(sys.path[0], "poetrybingo", "modules"))
 
 
 def CMU():
     return cmudict.dict()
+
+
+from tqdm import tqdm
+
+
+class DummyFile(object):
+    file = None
+
+    def __init__(self, file):
+        self.file = file
+
+    def write(self, x):
+        # Avoid print() second call (useless \n)
+        if len(x.rstrip()) > 0:
+            tqdm.write(x, file=self.file)
+
+
+@contextlib.contextmanager
+def nostdout():
+    save_stdout = sys.stdout
+    sys.stdout = DummyFile(sys.stdout)
+    yield
+    sys.stdout = save_stdout
 
 
 def missing_words():
@@ -25,45 +50,53 @@ def missing_words():
 
 corp = corpus.load_corpus()
 word_set = missing_words()
-cmu = CMU()
+cmu = cmudict.dict()
 unique_words = set(corp.split(" "))
 
 
 def cmudict_missing():
     """Find and return words in word set missing from cmudict."""
     exceptions = set()
-    for word in corp.split():
-        if word.endswith("'s") or word.endswith("’s"):
-            word = word[:-2]
-        if word not in cmu:
-            exceptions.add(word)
+    with tqdm(total=len(word_set), position=0) as pbar:
+        for word in unique_words:
+            if word.endswith("'s") or word.endswith("’s"):
+                word = word[:-2]
+    with tqdm(total=len(word_set), position=0, leave=True) as pbar:
+        for count, word in tqdm(
+            enumerate(unique_words, start=1), position=0, leave=True
+        ):
+            if word not in cmu | word_set:
+                exceptions.add(word)
+            pbar.update()
+
     print("\nexceptions:")
     print(exceptions)
     print("==================================================================")
     print(f"Unique words in corpus = {colors.GREEN(len(unique_words))}{colors.ENDC()}")
+
     print(
-        f"Unique words in corpus not in cmudict = {colors.WARNING(len(exceptions))}{colors.ENDC()}"
+        f"Unique words I've already been taught = {colors.BLUE(len(word_set))}{colors.ENDC()}"
     )
+
     print(
-        f"Number of words in current exceptions dictionary = {colors.BLUE(len(word_set))}{colors.ENDC()}"
+        f"Unique words I need to be taught = {colors.WARNING(len(exceptions))}{colors.ENDC()}"
     )
+
     membership = (1 - len(exceptions) / len(cmu)) * 100
-    coverage = ((len(cmu) - len(exceptions)) / len(cmu)) * 100
+    coverage = (len(cmu) - len(exceptions)) / len(cmu) * 100
     missing = abs(len(word_set) - len(exceptions))
-    print(
-        f"Corpus words missing from both cmudict and exceptions = {colors.FAIL(missing)}{colors.ENDC()}."
-    )
     print("==================================================================")
     print(
-        f"\n{colors.GREEN('Haiku Roulette')}{colors.ENDC()} works best if the {colors.UNDERLINE('words missing from both')}{colors.ENDC()} number is {colors.FAIL('0')}{colors.ENDC()}. I.e. the red value in the summary above."
+        f"\n{colors.GREEN('Haiku Roulette')}{colors.ENDC()} works best if the {colors.UNDERLINE('words words I need to be taught')}{colors.ENDC()} number is {colors.WARNING('0')}{colors.ENDC()}."
     )
+
     print(
-        f"\nIf you're seeing a nonzero number, maybe input 'Y' and add some words to the exceptions dictionary."
+        f"\nIf there are words I need to learn, maybe take a few minutes\nto add those words to the exceptions dictionary."
     )
+
     print(f"\nYou don't {colors.UNDERLINE('have')}{colors.ENDC()} to.")
     print(f"\nYou don't have to do anything, really.")
     print("\nBut the generated haiku will be slightly less horrible if you do.")
-
     return exceptions
 
 
@@ -111,19 +144,32 @@ def make_exceptions_dict(exceptions_set):
     return missing_words
 
 
-def save_exceptions(missing_words):
+def save_exceptions(var):
     """Save exceptions dictionary as json file."""
-    json_string = json.dumps(missing_words)
     with open("../data/missing_words.json", "a+") as f:
-        new_string = f.append(json_string)
-        f.write(new_string)
+        f.write(var)
     print("\nFile saved as missing_words.json")
 
+
 def main():
+    print(
+        """
+
+ _______   __    ______ .___________. __    ______   .__   __.      ___      .______     ____    ____
+|       \ |  |  /      ||           ||  |  /  __  \  |  \ |  |     /   \     |   _  \    \   \  /   /
+|  .--.  ||  | |  ,----'`---|  |----`|  | |  |  |  | |   \|  |    /  ^  \    |  |_)  |    \   \/   /
+|  |  |  ||  | |  |         |  |     |  | |  |  |  | |  . `  |   /  /_\  \   |      /      \_    _/
+|  '--'  ||  | |  `----.    |  |     |  | |  `--'  | |  |\   |  /  _____  \  |  |\  \----.   |  |
+|_______/ |__|  \______|    |__|     |__|  \______/  |__| \__| /__/     \__\ | _| `._____|   |__|
+
+Hang tight, I'm comparing your corpus to my syllable dictionary...
+        """
+    )
+
     missing_words()
     exceptions = cmudict_missing()
-    missing = make_exceptions_dict(exceptions)
-    save_exceptions(missing_words)
+    miss = make_exceptions_dict(exceptions)
+    save_exceptions(str(miss))
     return
 
 

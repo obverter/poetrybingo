@@ -7,9 +7,11 @@ import pandas as pd
 from nltk.corpus import cmudict
 import dictionary, corpus
 
-sys.path.insert(0, "poetrybingo/data")
+sys.path.append(os.path.join(sys.path[0],'poetrybingo','utilities'))
+sys.path.append(os.path.join(sys.path[0],'poetrybingo','data'))
+sys.path.append(os.path.join(sys.path[0],'poetrybingo','modules'))
 
-
+cmu = cmudict.dict()
 
 def count_syllables(words):
     """Use corpora to count syllables in English word or phrase."""
@@ -25,7 +27,7 @@ def count_syllables(words):
         if word in missing_words:
             num_sylls += missing_words[word]
         else:
-            for phonemes in cmudict[word][0]:
+            for phonemes in cmu[word][0]:
                 for phoneme in phonemes:
                     if phoneme[-1].isdigit():
                         num_sylls += 1

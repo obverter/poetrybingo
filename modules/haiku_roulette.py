@@ -1,16 +1,18 @@
 """Produce new haiku from training corpus of existing haiku."""
-import os.path
+import os
 import sys
-sys.path.insert(0, "poetrybingo")
-sys.path.insert(1, "poetrybingo/data")
-sys.path.insert(2, "poetrybingo/utilities")
-sys.path.append('utilities')
+
+# sys.path.append(os.path.join(sys.path[0],'utilities'))
+sys.path.append(os.path.join(sys.path[0],'data'))
+# sys.path.append(os.path.join(sys.path[0],'modules'))
+
+import corpus, colors, dictionary, syllables
+
 
 import logging
 import random
 from collections import defaultdict
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from poetrybingo import corpus, dictionary, syllables, colors
+
 
 logging.disable(logging.CRITICAL)  # comment-out to enable debugging messages
 logging.basicConfig(level=logging.DEBUG, format="%(message)s")
@@ -153,12 +155,19 @@ def haiku_line(suffix_map_1, suffix_map_2, corpus, end_prev_line, target_syls):
 def main():
     """Give user choice of building a haiku or modifying an existing haiku."""
     intro = """\n
-    N-monkeys at N-typewriters for N-millenia...
-            or one computer piped full of garbage
-                    ...can sometimes produce a haiku.\n"""
+
+ +-+-+-+ +-+-+-+-+-+-+
+ |T|M|Z| |H|A|I|K|U|:|
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |P|O|E|T|R|Y| |I|S| |E|V|E|R|Y|W|H|E|R|E|
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |E|V|E|N| |T|H|E| |D|U|M|P|S|T|E|R|
+ +-+-+-+-+ +-+-+-+ +-+-+-+-+-+-+-+-+
+
+\n"""
 
     print(f"{intro}")
-    raw_haiku = load_training_file("data/corpus.txt")
+    raw_haiku = load_training_file("../data/corpus.txt")
     corpus = prep_training(raw_haiku)
     suffix_map_1 = map_word_to_word(corpus)
     suffix_map_2 = map_2_words_to_word(corpus)
@@ -167,12 +176,33 @@ def main():
     while choice != "0":
         print(
             """
-            TMZese Haiku Generator
+            Welcome to Poetry Bingo:
+                The TMZ Headline Haiku Edition
 
             0 - Quit
-            1 - Generate a TMZ Headline Haiku
+            1 - Generate a new Haiku from scraped TMZ headlines
             2 - Regenerate Line 2
             3 - Regenerate Line 3
+
+            vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+            >                                               <
+            >   HOT TIP:                                    <
+            >                                               <
+            >        This module: flawless.                 <
+            >            But it corner-paints itself.       <
+            >                When in doubt, press 1.        <
+            >                                               <
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+            vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+            >                                               <
+            >   WARM TIP:                                   <
+            >                                               <
+            >        Mash those buttons, chief.             <
+            >            Success is mostly luck and         <
+            >                Reckless abandon.              <
+            >                                               <
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
             """
         )
 
