@@ -1,4 +1,4 @@
-# Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jupyternotebooks,osx
+n# Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jupyternotebooks,osx
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,jupyternotebooks,osx
 
 ### JupyterNotebooks ###
@@ -235,3 +235,4 @@ cython_debug/
 secrets.py
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jupyternotebooks,osx
+node_modules

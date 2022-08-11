@@ -1,8 +1,8 @@
 # app.py
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///poetrybingo.sqlite3'
 db = SQLAlchemy(app)
@@ -15,18 +15,18 @@ class Headline(db.Model):
     LOC_CODE = db.Column(db.Text, primary_key=True)
 
 
+
 @app.route("/")
 def hello():
-    print("Total number of headlines is", Headline.query.count())
-    return render_template("index.html")
+    headline_count = Headline.query.count()
+    all_headlines = Headline.query.all()
+    return render_template("index.html", count=headline_count, headlines=all_headlines)
 
-@app.route("/shoelaces")
-def shoelaces():
-    return "This works now!"
+@app.route("/headlines/<slug>")
+def detail(slug):
+    headline = Headline.query.filter_by(LOC_CODE=slug).first()
+    return render_template("detail.html", headline=headline)
 
-@app.route("/about")
-def about():
-    return "All about my website!"
 
 if __name__ == '__main__':
     app.run(debug=True)
