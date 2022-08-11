@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
@@ -16,17 +16,11 @@ class Headline(db.Model):
 
 
 
-@app.route("/")
-def hello():
-    headline_count = Headline.query.count()
-    all_headlines = Headline.query.all()
-    return render_template("index.html", count=headline_count, headlines=all_headlines)
-
-@app.route("/headlines/<slug>")
-def detail(slug):
-    headline = Headline.query.filter_by(LOC_CODE=slug).first()
-    return render_template("detail.html", headline=headline)
-
+@app.route("/", methods=['POST', 'GET'])
+def index():
+    if request.method == 'POST':
+        print(request.form.get('hallo'))
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
