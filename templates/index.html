@@ -1,26 +1,28 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="block">
-<span class="subtitle">TMZ HAIKU:<br></span>
-<span class="subtitle">POEMS CAN HIDE ANYWHERE.<br></span>
-<span class="subtitle">EVEN THE DUMPSTER.<br></span>
-</div>
+
+
+  <div class="card-content">
+    <span class="subtitle">TMZ HAIKU:<br></span>
+    <span class="subtitle">POEMS CAN HIDE ANYWHERE.<br></span>
+    <span class="subtitle">EVEN THE DUMPSTER.<br></span>
+  </div>
 
 <div class="buttons is-centered">
 
-<form method="post">
-  <button type="submit">GENERATE A NEW HAIKU</button>
-</form>
-
+  <form method="post">
+    <button type="submit" class="button is-primary is-large is-fullwidth is-rounded"> GENERATE A NEW HAIKU</button>
+  </form>
+  <br><br>
 </div>
 <div class="buttons is-centered">
-<form method="post">
-  <button type="submit">REGENERATE LINE 2</button>
-</form>
-<form method="post">
-  <button type="submit">REGENERATE LINE 3</button>
-</form>
+  <form method="post">
+    <button type="submit" class="button is-success is-light is-normal is-outlined is-rounded">REGENERATE LINE 2</button>
+  </form>
+  <form method="post">
+    <button type="submit" class="button is-success is-light is-normal is-outlined is-rounded">REGENERATE LINE 3</button>
+  </form>
 </div>
 {% endblock %}
 

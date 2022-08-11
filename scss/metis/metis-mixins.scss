@@ -1,0 +1,88 @@
+$available-devices: "basic", "mobile", "tablet", "tablet-only", "touch", "desktop", "desktop-only",
+      "widescreen", "widescreen-only", "fullhd", "screens", "screens-only", "all";
+
+@mixin make-rwd($className, $devices) {
+  @each $device in $devices {
+    @if index($available-devices, $device) {
+
+      @if $device == "basic" or $device == "screens" or $device == "screens-only" or $device == "all" {
+        .#{$className} {
+          @content
+        }
+      }
+
+      @if $device == "mobile" or $device == "screens" or $device == "all" {
+        @include mobile() {
+          .#{$className}-mobile {
+            @content
+          }
+        }
+      }
+
+      @if $device == "tablet" or $device == "screens" or $device == "all" {
+        @include tablet() {
+          .#{$className}-tablet {
+            @content
+          }
+        }
+      }
+
+      @if $device == "tablet-only" or $device == "screens-only" or $device == "all" {
+        @include tablet-only() {
+          .#{$className}-tablet-only {
+            @content
+          }
+        }
+      }
+
+      @if $device == "touch" or $device == "all" {
+        @include touch() {
+          .#{$className}-touch {
+            @content
+          }
+        }
+      }
+
+      @if $device == "desktop" or $device == "screens" or $device == "all" {
+        @include desktop() {
+          .#{$className}-desktop {
+            @content
+          }
+        }
+      }
+
+      @if $device == "desktop-only" or $device == "screens-only" or $device == "all" {
+        @include desktop-only() {
+          .#{$className}-desktop-only {
+            @content
+          }
+        }
+      }
+
+      @if $device == "widescreen" or $device == "screens" or $device == "all" {
+        @include widescreen() {
+          .#{$className}-widescreen {
+            @content
+          }
+        }
+      }
+
+      @if $device == "widescreen-only" or $device == "screens-only" or $device == "all" {
+        @include widescreen-only() {
+          .#{$className}-widescreen-only {
+            @content
+          }
+        }
+      }
+
+      @if $device == "fullhd" or $device == "screens" or $device == "all" {
+        @include fullhd() {
+          .#{$className}-fullhd {
+            @content
+          }
+        }
+      }
+
+    }
+  }
+}
