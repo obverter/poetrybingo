@@ -1,6 +1,18 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jupyternotebooks,osx
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,jupyternotebooks,osx
 
+# Data files
+headlines.csv
+headlines.json
+*.csv
+*.json
+data/*.csv
+data/*.json
+
+# Logs
+logs/
+*.log
+
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/

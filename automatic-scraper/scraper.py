@@ -186,12 +186,20 @@ class TMZScraper:
             try:
                 existing_df = pd.read_csv(headlines_csv_path, index_col="Unnamed: 0")
                 logger.info(f"Loaded existing data with {len(existing_df)} rows")
+                
+                # Only append new articles
+                new_articles = current_df[~current_df['timestamp'].isin(existing_df['timestamp'])]
+                if len(new_articles) > 0:
+                    logger.info(f"Adding {len(new_articles)} new articles")
+                    combined_df = pd.concat([new_articles, existing_df])
+                else:
+                    logger.info("No new articles to add")
+                    combined_df = existing_df
             except FileNotFoundError:
                 logger.info("No existing headlines.csv found. Creating new file.")
-                existing_df = pd.DataFrame(columns=current_df.columns)
+                combined_df = current_df
 
-            # Combine and deduplicate
-            combined_df = pd.concat([current_df, existing_df])
+            # Sort and deduplicate
             combined_df = combined_df.sort_values(
                 by=["year", "month", "day", "hour", "minute"],
                 ascending=[False, False, False, False, False],
@@ -201,8 +209,8 @@ class TMZScraper:
             logger.info(f"Final DataFrame has {len(combined_df)} rows")
 
             # Save files
-            combined_df.to_csv(headlines_csv_path)
-            combined_df.to_json(self.parent_dir / "headlines.json")
+            combined_df.to_csv(headlines_csv_path, index=False)  # Remove index to save space
+            combined_df.to_json(self.parent_dir / "headlines.json", orient='records', lines=True)  # Use line-delimited JSON
             logger.info(f"Successfully updated headlines in {headlines_csv_path}")
             
         except Exception as e:
