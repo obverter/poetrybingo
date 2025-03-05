@@ -32,6 +32,7 @@ jobs:
           pip install -r automatic-scraper/requirements.txt
       # MAKE SURE YOUR SCRAPER FILENAME MATCHES THE FILENAME HERE!!
       - name: Run the scraping script
+        id: scrape
         run: |
           python automatic-scraper/scraper.py || exit 1
       # I just stole the rest of this code so don't ask me questions about it
@@ -59,10 +60,19 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const issue = context.issue;
-            github.rest.issues.createComment({
-              owner: issue.owner,
-              repo: issue.repo,
-              issue_number: issue.number,
-              body: '❌ Scraper workflow failed. Please check the [workflow run](' + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId + ') for details.'
-            });
+            const workflow_run_url = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const message = `❌ Scraper workflow failed. Please check the [workflow run](${workflow_run_url}) for details.`;
+            
+            // Create a new issue if the workflow failed
+            if (context.eventName === 'workflow_dispatch' || context.eventName === 'schedule') {
+              github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Scraper Workflow Failed',
+                body: message,
+                labels: ['bug', 'scraper']
+              });
+            }
+            
+            // Log the error message
+            console.log(message);
