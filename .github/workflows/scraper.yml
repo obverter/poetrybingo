@@ -67,7 +67,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add headlines.csv.gz headlines.json.gz
+          git add headlines.csv headlines.json
           timestamp=$(date -u)
           git commit -m "Update headlines: ${timestamp}"
           git push
