@@ -6,6 +6,7 @@ import pandas as pd
 import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
+import bs4
 import json
 import os
 import sys
@@ -54,7 +55,7 @@ def log_system_info():
     logger.info(f"NumPy Version: {np.__version__}")
     logger.info(f"Pandas Version: {pd.__version__}")
     logger.info(f"Requests Version: {requests.__version__}")
-    logger.info(f"BeautifulSoup4 Version: {BeautifulSoup.__version__}")
+    logger.info(f"BeautifulSoup4 Version: {bs4.__version__}")
     logger.info(f"Working Directory: {os.getcwd()}")
     logger.info(f"Script Location: {Path(__file__).absolute()}")
 
