@@ -69,9 +69,11 @@ class Article:
     day: int
     hour: int
     minute: int
+    calendar: str
+    clock: str
 
 class TMZScraper:
-    def __init__(self, base_url: str = "https://www.tmz.com"):
+    def __init__(self, base_url: str = "https://www.tmz.com", max_articles: int = 50, delay: float = 1.0):
         self.base_url = base_url
         self.session = requests.Session()
         self.session.headers.update({
@@ -80,7 +82,10 @@ class TMZScraper:
         self.parent_dir = Path(__file__).parent.parent
         self.max_retries = 3
         self.retry_delay = 5  # seconds
-        logger.info(f"Initialized TMZScraper with base_url: {base_url}")
+        self.max_articles = max_articles
+        self.request_delay = delay
+        self.temp_file = self.parent_dir / "temp_headlines.csv"
+        logger.info(f"Initialized TMZScraper with base_url: {base_url}, max_articles: {max_articles}, delay: {delay}s")
 
     def fetch_page(self) -> BeautifulSoup:
         """Fetch and parse the TMZ homepage with retries."""
@@ -135,12 +140,20 @@ class TMZScraper:
     def parse_timestamp(self, timestamp_text: str) -> Dict[str, Any]:
         """Parse timestamp into its components."""
         try:
-            timestamp = timestamp_text.split("PT")[-20:]
-            timestamp = timestamp[0][-20:].strip()
-            dt = datetime.strptime(timestamp, "%m/%d/%Y %I:%M %p")
+            # Clean up the timestamp text
+            timestamp_text = timestamp_text.strip()
+            
+            # Handle different timestamp formats
+            try:
+                # Try the original format first
+                dt = datetime.strptime(timestamp_text, "%m/%d/%Y %I:%M %p")
+            except ValueError:
+                # Try alternative format without AM/PM
+                dt = datetime.strptime(timestamp_text, "%m/%d/%Y %H:%M")
+            
             return {
-                "calendar": timestamp[:9],
-                "clock": timestamp[-8:].strip(),
+                "calendar": dt.strftime("%m/%d/%Y"),
+                "clock": dt.strftime("%I:%M %p"),
                 "year": dt.year,
                 "month": dt.month,
                 "day": dt.day,
@@ -152,23 +165,71 @@ class TMZScraper:
             logger.error(f"Timestamp text: {timestamp_text}")
             raise
 
+    def validate_article(self, article: Article) -> bool:
+        """Validate article data before saving."""
+        try:
+            # Check required fields
+            if not article.headline or not article.timestamp:
+                return False
+            
+            # Validate timestamp format
+            datetime.fromisoformat(article.timestamp.replace("Z", "+00:00"))
+            
+            # Validate date components
+            if not (1 <= article.month <= 12 and 1 <= article.day <= 31 and 
+                   0 <= article.hour <= 23 and 0 <= article.minute <= 59):
+                return False
+            
+            return True
+        except Exception as e:
+            logger.warning(f"Article validation failed: {e}")
+            return False
+
+    def save_temp_data(self, articles: List[Article]):
+        """Save articles to a temporary file for recovery."""
+        try:
+            if articles:
+                temp_df = pd.DataFrame([vars(article) for article in articles])
+                temp_df.to_csv(self.temp_file, index=False)
+                logger.info(f"Saved {len(articles)} articles to temporary file")
+        except Exception as e:
+            logger.error(f"Error saving temporary data: {e}")
+
     def process_articles(self, doc: BeautifulSoup) -> List[Article]:
         """Process all articles from the page."""
         articles = []
         raw_titles = doc.select("header > a > h2")
-        timestamps = doc.select(".article")
+        timestamps = doc.select("time.published-datetime")
 
         logger.info(f"Processing {len(raw_titles)} articles")
         for idx, (title, timestamp) in enumerate(zip(raw_titles, timestamps)):
+            if idx >= self.max_articles:
+                logger.info(f"Reached maximum article limit ({self.max_articles})")
+                break
+
             try:
                 headline = title.get_text().strip().replace("\n", " ") + "."
                 if headline[-2] in ["'", "!", "?"]:
                     headline = headline[:-1]
 
-                timestamp_text = timestamp.text.split("PT")[-20:]
-                timestamp_text = timestamp_text[0][-20:].strip()
+                # Extract timestamp from datetime attribute
+                timestamp_text = timestamp.get("datetime", "").strip()
+                if not timestamp_text:
+                    logger.warning(f"No datetime attribute found for article {idx}")
+                    continue
                 
-                time_data = self.parse_timestamp(timestamp_text)
+                # Parse the ISO format timestamp
+                dt = datetime.fromisoformat(timestamp_text.replace("Z", "+00:00"))
+                time_data = {
+                    "calendar": dt.strftime("%m/%d/%Y"),
+                    "clock": dt.strftime("%I:%M %p"),
+                    "year": dt.year,
+                    "month": dt.month,
+                    "day": dt.day,
+                    "hour": dt.hour,
+                    "minute": dt.minute,
+                }
+                
                 tags = self.get_tags(doc, idx + 1)
 
                 article = Article(
@@ -177,8 +238,17 @@ class TMZScraper:
                     timestamp=timestamp_text,
                     **time_data
                 )
-                articles.append(article)
-                logger.debug(f"Processed article {idx + 1}: {headline}")
+
+                # Validate article before adding
+                if self.validate_article(article):
+                    articles.append(article)
+                    logger.debug(f"Processed article {idx + 1}: {headline}")
+                else:
+                    logger.warning(f"Skipping invalid article: {headline}")
+
+                # Add delay between processing articles
+                time.sleep(self.request_delay)
+
             except Exception as e:
                 logger.error(f"Error processing article {idx}: {e}")
                 logger.error(f"Article HTML: {title}")
@@ -203,6 +273,9 @@ class TMZScraper:
     def save_data(self, articles: List[Article]):
         """Save articles to CSV and JSON files with compression."""
         try:
+            # Save temporary data for recovery
+            self.save_temp_data(articles)
+
             current_df = pd.DataFrame([vars(article) for article in articles])
             logger.info(f"Created DataFrame with {len(current_df)} rows")
             
@@ -259,6 +332,10 @@ class TMZScraper:
             import gc
             gc.collect()
             
+            # Remove temporary file after successful save
+            if self.temp_file.exists():
+                self.temp_file.unlink()
+            
             logger.info(f"Successfully updated headlines in {headlines_csv_path}")
             
         except Exception as e:
@@ -278,8 +355,16 @@ class TMZScraper:
         except Exception as e:
             logger.error(f"Scraper failed: {e}")
             logger.error(f"Traceback: {traceback.format_exc()}")
+            # Try to recover data from temporary file
+            if self.temp_file.exists():
+                try:
+                    recovered_df = pd.read_csv(self.temp_file)
+                    recovered_df.to_csv(self.parent_dir / "recovered_headlines.csv", index=False)
+                    logger.info("Recovered data saved to recovered_headlines.csv")
+                except Exception as recovery_error:
+                    logger.error(f"Failed to recover data: {recovery_error}")
             sys.exit(1)
 
 if __name__ == "__main__":
-    scraper = TMZScraper()
+    scraper = TMZScraper(max_articles=50, delay=1.0)  # Limit to 50 articles with 1 second delay
     scraper.run()
