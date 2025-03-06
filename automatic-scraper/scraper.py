@@ -284,19 +284,24 @@ class TMZScraper:
             headlines_json_path = self.parent_dir / "headlines.json"
             
             try:
-                # Try to read from compressed file first
-                if (headlines_csv_path.with_suffix('.csv.gz')).exists():
-                    existing_df = pd.read_csv(
-                        headlines_csv_path.with_suffix('.csv.gz'),
-                        compression='gzip',
-                        chunksize=10000  # Process in chunks
-                    )
-                    # Combine chunks efficiently
-                    existing_df = pd.concat(existing_df, ignore_index=True)
-                elif headlines_csv_path.exists():
-                    # Try to read as regular CSV
-                    existing_df = pd.read_csv(headlines_csv_path, chunksize=10000)
-                    existing_df = pd.concat(existing_df, ignore_index=True)
+                # Check if file exists and is gzipped
+                if headlines_csv_path.exists():
+                    with open(headlines_csv_path, 'rb') as f:
+                        # Check if file starts with gzip magic number (1f 8b)
+                        if f.read(2) == b'\x1f\x8b':
+                            logger.info("Detected gzipped file, reading with compression")
+                            existing_df = pd.read_csv(
+                                headlines_csv_path,
+                                compression='gzip',
+                                chunksize=10000
+                            )
+                            existing_df = pd.concat(existing_df, ignore_index=True)
+                        else:
+                            # Reset file pointer and read as regular CSV
+                            f.seek(0)
+                            logger.info("Reading as regular CSV file")
+                            existing_df = pd.read_csv(headlines_csv_path, chunksize=10000)
+                            existing_df = pd.concat(existing_df, ignore_index=True)
                 else:
                     logger.info("No existing headlines.csv found. Creating new file.")
                     existing_df = pd.DataFrame()
