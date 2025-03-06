@@ -293,9 +293,14 @@ class TMZScraper:
                     )
                     # Combine chunks efficiently
                     existing_df = pd.concat(existing_df, ignore_index=True)
-                else:
+                elif headlines_csv_path.exists():
+                    # Try to read as regular CSV
                     existing_df = pd.read_csv(headlines_csv_path, chunksize=10000)
                     existing_df = pd.concat(existing_df, ignore_index=True)
+                else:
+                    logger.info("No existing headlines.csv found. Creating new file.")
+                    existing_df = pd.DataFrame()
+                
                 logger.info(f"Loaded existing data with {len(existing_df)} rows")
                 
                 # Only append new articles using efficient set operations
