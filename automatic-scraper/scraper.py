@@ -16,6 +16,10 @@ from pathlib import Path
 import platform
 import traceback
 import numpy as np
+import gzip
+import shutil
+from concurrent.futures import ThreadPoolExecutor
+import time
 
 # Configure logging
 log_dir = Path(__file__).parent.parent / "logs"
@@ -73,27 +77,34 @@ class TMZScraper:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         })
         self.parent_dir = Path(__file__).parent.parent
+        self.max_retries = 3
+        self.retry_delay = 5  # seconds
         logger.info(f"Initialized TMZScraper with base_url: {base_url}")
 
     def fetch_page(self) -> BeautifulSoup:
-        """Fetch and parse the TMZ homepage."""
-        try:
-            logger.info("Fetching TMZ homepage...")
-            response = self.session.get(self.base_url)
-            response.raise_for_status()
-            logger.debug(f"Response status code: {response.status_code}")
-            return BeautifulSoup(response.text, "html.parser")
-        except requests.RequestException as e:
-            logger.error(f"Failed to fetch TMZ homepage: {e}")
-            logger.error(f"Response content: {getattr(e.response, 'text', 'No response content')}")
-            raise
+        """Fetch and parse the TMZ homepage with retries."""
+        for attempt in range(self.max_retries):
+            try:
+                logger.info(f"Fetching TMZ homepage (attempt {attempt + 1}/{self.max_retries})...")
+                response = self.session.get(self.base_url, timeout=10)
+                response.raise_for_status()
+                logger.debug(f"Response status code: {response.status_code}")
+                return BeautifulSoup(response.text, "html.parser")
+            except requests.RequestException as e:
+                if attempt < self.max_retries - 1:
+                    logger.warning(f"Attempt {attempt + 1} failed: {e}")
+                    time.sleep(self.retry_delay)
+                    continue
+                logger.error(f"Failed to fetch TMZ homepage after {self.max_retries} attempts: {e}")
+                logger.error(f"Response content: {getattr(e.response, 'text', 'No response content')}")
+                raise
 
     def get_headlines(self, doc: BeautifulSoup) -> List[str]:
         """Extract headlines from the page."""
         raw_titles = doc.select("header > a > h2")
         if not raw_titles:
             logger.warning("No headlines found. The website structure might have changed.")
-            logger.debug("Page content: %s", doc.prettify()[:1000])  # Log first 1000 chars of page
+            logger.debug("Page content: %s", doc.prettify()[:1000])
             return []
 
         headlines = []
@@ -175,20 +186,48 @@ class TMZScraper:
 
         return articles
 
+    def compress_file(self, file_path: Path):
+        """Compress a file using gzip."""
+        try:
+            with open(file_path, 'rb') as f_in:
+                with gzip.open(f"{file_path}.gz", 'wb') as f_out:
+                    shutil.copyfileobj(f_in, f_out)
+            # Remove original file after successful compression
+            file_path.unlink()
+            logger.info(f"Compressed {file_path}")
+        except Exception as e:
+            logger.error(f"Error compressing {file_path}: {e}")
+            raise
+
     def save_data(self, articles: List[Article]):
-        """Save articles to CSV and JSON files."""
+        """Save articles to CSV and JSON files with compression."""
         try:
             current_df = pd.DataFrame([vars(article) for article in articles])
             logger.info(f"Created DataFrame with {len(current_df)} rows")
             
-            # Read existing data
+            # Read existing data in chunks to manage memory
             headlines_csv_path = self.parent_dir / "headlines.csv"
+            headlines_json_path = self.parent_dir / "headlines.json"
+            
             try:
-                existing_df = pd.read_csv(headlines_csv_path, index_col="Unnamed: 0")
+                # Try to read from compressed file first
+                if (headlines_csv_path.with_suffix('.csv.gz')).exists():
+                    existing_df = pd.read_csv(
+                        headlines_csv_path.with_suffix('.csv.gz'),
+                        compression='gzip',
+                        chunksize=10000  # Process in chunks
+                    )
+                    # Combine chunks efficiently
+                    existing_df = pd.concat(existing_df, ignore_index=True)
+                else:
+                    existing_df = pd.read_csv(headlines_csv_path, chunksize=10000)
+                    existing_df = pd.concat(existing_df, ignore_index=True)
                 logger.info(f"Loaded existing data with {len(existing_df)} rows")
                 
-                # Only append new articles
-                new_articles = current_df[~current_df['timestamp'].isin(existing_df['timestamp'])]
+                # Only append new articles using efficient set operations
+                existing_timestamps = set(existing_df['timestamp'])
+                new_articles = current_df[~current_df['timestamp'].isin(existing_timestamps)]
+                
                 if len(new_articles) > 0:
                     logger.info(f"Adding {len(new_articles)} new articles")
                     combined_df = pd.concat([new_articles, existing_df])
@@ -199,7 +238,7 @@ class TMZScraper:
                 logger.info("No existing headlines.csv found. Creating new file.")
                 combined_df = current_df
 
-            # Sort and deduplicate
+            # Sort and deduplicate efficiently
             combined_df = combined_df.sort_values(
                 by=["year", "month", "day", "hour", "minute"],
                 ascending=[False, False, False, False, False],
@@ -208,9 +247,17 @@ class TMZScraper:
             combined_df = combined_df.drop_duplicates(subset=["timestamp"], keep="first", ignore_index=True)
             logger.info(f"Final DataFrame has {len(combined_df)} rows")
 
-            # Save files
-            combined_df.to_csv(headlines_csv_path, index=False)  # Remove index to save space
-            combined_df.to_json(self.parent_dir / "headlines.json", orient='records', lines=True)  # Use line-delimited JSON
+            # Save files with compression and memory optimization
+            combined_df.to_csv(headlines_csv_path, index=False, compression='gzip')
+            combined_df.to_json(headlines_json_path, orient='records', lines=True, compression='gzip')
+            
+            # Clear memory
+            del combined_df
+            del existing_df
+            del current_df
+            import gc
+            gc.collect()
+            
             logger.info(f"Successfully updated headlines in {headlines_csv_path}")
             
         except Exception as e:

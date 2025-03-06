@@ -13,12 +13,18 @@ jobs:
     # For some reason, we run love versions of linux
     runs-on: ubuntu-latest
     timeout-minutes: 5  # Prevent hanging jobs
+    
+    # Add caching for pip and Python
+    env:
+      PIP_CACHE_DIR: ~/.cache/pip
+      PYTHONPATH: ${{ github.workspace }}
+    
     steps:
       # Download all of the code from your repo
       - name: Check out this repo
-        uses: actions/checkout@v3  # Updated to latest version
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Fetch all history for proper git operations
+          fetch-depth: 1  # Only fetch the latest commit
           token: ${{ secrets.GITHUB_TOKEN }}
       # Set up Python 3.10
       - name: Set up Python
@@ -26,6 +32,16 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'  # Enable pip caching
+          cache-dependency-path: |
+            automatic-scraper/requirements.txt
+            **/*.py
+      - name: Cache pip packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -51,10 +67,14 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add headlines.csv headlines.json
+          git add headlines.csv.gz headlines.json.gz
           timestamp=$(date -u)
           git commit -m "Update headlines: ${timestamp}"
           git push
+      - name: Clean up old logs
+        if: always()
+        run: |
+          find logs -type f -name "scraper_*.log" -mtime +7 -delete
       - name: Notify on failure
         if: failure()
         uses: actions/github-script@v6
